@@ -10,30 +10,72 @@ interface Review {
 export default function Home() {
   const reviews: Review[] = [
     {
-      reviewWriterNickname: "김사장",
-      storeReviewId: "",
+      reviewWriterNickname: '김사장',
+      storeReviewId: '',
       storeReviewRating: 4,
-      storeReviewContent: "친절했어요.",
+      storeReviewContent: '친절했어요.',
       storeReviewPhotoUrls: [],
-      createdAt: "2023-08-03T12:00:00.000Z",
+      createdAt: '2023-08-03T12:00:00.000Z',
     },
     {
-      reviewWriterNickname: "율루랄라",
-      storeReviewId: "",
+      reviewWriterNickname: '율루랄라',
+      storeReviewId: '',
       storeReviewRating: 1,
-      storeReviewContent: "노잼",
+      storeReviewContent:
+        '노잼. 재미 없었어요. 노잼. 재미 없었어요. 노잼. 재미 없었어요. 노잼. 재미 없었어요. 노잼. 재미 없었어요. 노잼. 재미 없었어요. 노잼. 재미 없었어요. 노잼. 재미 없었어요. 노잼. 재미 없었어요. 노잼. 재미 없었어요. 노잼. 재미 없었어요. 노잼. 재미 없었어요. 노잼. 재미 없었어요. 노잼. 재미 없었어요. 노잼. 재미 없었어요. 노잼. 재미 없었어요.',
       storeReviewPhotoUrls: [],
-      createdAt: "2023-08-05T12:00:00.000Z",
+      createdAt: '2023-08-05T12:00:00.000Z',
+    },
+    {
+      reviewWriterNickname: '김사장',
+      storeReviewId: '',
+      storeReviewRating: 4,
+      storeReviewContent: '친절했어요.',
+      storeReviewPhotoUrls: [],
+      createdAt: '2023-08-03T12:00:00.000Z',
+    },
+    {
+      reviewWriterNickname: '율루랄라',
+      storeReviewId: '',
+      storeReviewRating: 1,
+      storeReviewContent:
+        '노잼. 재미 없었어요. 노잼. 재미 없었어요. 노잼. 재미 없었어요. 노잼. 재미 없었어요. 노잼. 재미 없었어요. 노잼. 재미 없었어요. 노잼. 재미 없었어요. 노잼. 재미 없었어요. 노잼. 재미 없었어요. 노잼. 재미 없었어요. 노잼. 재미 없었어요. 노잼. 재미 없었어요. 노잼. 재미 없었어요. 노잼. 재미 없었어요. 노잼. 재미 없었어요. 노잼. 재미 없었어요.',
+      storeReviewPhotoUrls: [],
+      createdAt: '2023-08-05T12:00:00.000Z',
     },
   ];
   return (
     <>
-      {reviews.map((review) => (
-        <div>
-          {review.reviewWriterNickname}님
-          <Stars rating={review.storeReviewRating} />
-          <span>{review.createdAt}</span>
-          <p>{review.storeReviewContent}</p>
+      {reviews.map((review, index) => (
+        <div className="m-3" key={index}>
+          <div className="flex flex-row">
+            <div className="flex items-center mr-3">
+              <img
+                src="https://yt3.ggpht.com/bUQjbuX5alVXIz0jEb2ZtUEUmM16WvpYurWevC6TeK2y5BBWlFTkaZ90aHtF0pySU7PLEZ7h=s88-c-k-c0x00ffffff-no-rj"
+                style={{ width: 32, height: 32 }}
+              />
+            </div>
+            <div>
+              <div className="flex justify-between">
+                <div>{review.reviewWriterNickname}님</div>
+                <a href="#">신고</a>
+              </div>
+              <div className="flex">
+                <Stars rating={review.storeReviewRating} />
+                <span className="ml-4">
+                  {review.createdAt.substring(0, 10)}
+                </span>
+              </div>
+            </div>
+          </div>
+
+          <div className="flex flex-row">
+            <img
+              src="https://phinf.pstatic.net/checkout/20220407_263/1649300509323GnJ6Q_JPEG/2002035604366722.jpg"
+              style={{ width: 76, height: 76 }}
+            />
+            <p className="ml-4">{review.storeReviewContent}</p>
+          </div>
         </div>
       ))}
     </>
@@ -58,7 +100,7 @@ function Star({ isFilled }: { isFilled: boolean }) {
   if (isFilled) {
     return (
       <svg
-        className="w-4 h-4 text-yellow-300"
+        className="w-4 h-4 text-cyan-400"
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         fill="currentColor"
