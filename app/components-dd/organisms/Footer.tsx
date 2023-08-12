@@ -9,8 +9,8 @@ export interface FooterProps {
 
 export default function Footer({ type, root }: FooterProps) {
   return (
-    <div className='w-full h-full bg-white border border-t shadow-md rounded-t-md'>
-      <div className='grid w-full grid-cols-4 gap-1 px-5'>
+    <footer className='w-full h-full bg-white border border-t shadow-md rounded-t-md'>
+      <nav className='grid w-full grid-cols-4 gap-1 px-5'>
         <Link
           href={'/'}
           className={joinStrings(
@@ -122,7 +122,7 @@ export default function Footer({ type, root }: FooterProps) {
             <Txt typography='caption'>My Page</Txt>
           </div>
         </Link>
-      </div>
-    </div>
+      </nav>
+    </footer>
   );
 }

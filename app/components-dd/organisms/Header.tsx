@@ -7,7 +7,7 @@ export interface HeaderProps {
 
 export default function Header({ type }: HeaderProps) {
   return (
-    <div className='w-full h-full bg-white border-b pt-[44px]'>
+    <header className='w-full h-full bg-white border-b pt-[44px]'>
       {/* 이후에 타입 별 헤더 추가 할 예정 */}
       <Container className='flex justify-between w-full px-2 py-[5px]'>
         <Link href='/'>
@@ -44,6 +44,6 @@ export default function Header({ type }: HeaderProps) {
           </Link>
         </Container>
       </Container>
-    </div>
+    </header>
   );
 }
