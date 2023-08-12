@@ -110,7 +110,7 @@ export default function Home() {
             <LeisureCategory key={`leisureCategory'${category.categoryId}`} href={'/leisures'} category={category} />
           ))}
         </Container>
-        <Spacing key={`spcaing1`} size={40} />
+        <Spacing size={40} />
       </Section>
 
       <Section>
