@@ -5,7 +5,7 @@ import Link from 'next/link';
 
 import Pagination from '../atoms/Pagination';
 
-import { IBanner } from '@/app/dd-libs/hooks/useBanners';
+import { IBanner } from '@/app/libs-dd/hooks/useBanners';
 
 interface Props {
   banners: IBanner[];

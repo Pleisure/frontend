@@ -1,4 +1,4 @@
-import joinStrings from '@/app/dd-libs/utils/joinStrings';
+import joinStrings from '@/app/libs-dd/utils/joinStrings';
 interface Props {
   isOpen?: boolean;
   children: React.ReactNode;

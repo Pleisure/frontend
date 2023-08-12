@@ -1,6 +1,6 @@
-import roundReviewCount from '@/app/dd-libs/utils/roundReviewCount';
+import roundReviewCount from '@/app/libs-dd/utils/roundReviewCount';
 import Txt from '../atoms/Txt';
-import { ILeisureStore } from '@/app/dd-libs/hooks/useLeisureStores';
+import { ILeisureStore } from '@/app/libs-dd/hooks/useLeisureStores';
 import Link from 'next/link';
 
 interface Props {

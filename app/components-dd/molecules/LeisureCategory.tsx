@@ -1,4 +1,4 @@
-import { ICategory } from '@/app/dd-libs/hooks/useLeisureCategories';
+import { ICategory } from '@/app/libs-dd/hooks/useLeisureCategories';
 import Link from 'next/link';
 import Txt from '../atoms/Txt';
 

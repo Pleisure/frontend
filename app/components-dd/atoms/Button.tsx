@@ -1,4 +1,4 @@
-import joinStrings from '@/app/dd-libs/utils/joinStrings';
+import joinStrings from '@/app/libs-dd/utils/joinStrings';
 import { ButtonHTMLAttributes } from 'react';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {

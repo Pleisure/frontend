@@ -1,4 +1,4 @@
-import joinStrings from '@/app/dd-libs/utils/joinStrings';
+import joinStrings from '@/app/libs-dd/utils/joinStrings';
 import { HTMLAttributes } from 'react';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {

@@ -1,4 +1,4 @@
-import joinStrings from '@/app/dd-libs/utils/joinStrings';
+import joinStrings from '@/app/libs-dd/utils/joinStrings';
 import Link from 'next/link';
 import Txt from '../atoms/Txt';
 

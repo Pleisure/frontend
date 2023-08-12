@@ -11,9 +11,9 @@ import PageLayout from '../components-dd/organisms/PageLayout';
 import Container from '../components-dd/atoms/Container';
 import { Button } from '../components-dd/atoms/Button';
 
-import { ICategory } from '../dd-libs/hooks/useLeisureCategories';
-import { ILeisureStore } from '../dd-libs/hooks/useLeisureStores';
-import { IBanner } from '../dd-libs/hooks/useBanners';
+import { ICategory } from '../libs-dd/hooks/useLeisureCategories';
+import { ILeisureStore } from '../libs-dd/hooks/useLeisureStores';
+import { IBanner } from '../libs-dd/hooks/useBanners';
 import Dropdown from '../components-dd/atoms/Dropdown';
 import { useState } from 'react';
 import LeisureCategory from '../components-dd/molecules/LeisureCategory';

@@ -1,4 +1,4 @@
-import joinStrings from '@/app/dd-libs/utils/joinStrings';
+import joinStrings from '@/app/libs-dd/utils/joinStrings';
 import Spacing from '../atoms/Spacing';
 import Header, { HeaderProps } from './Header';
 import Footer, { FooterProps } from './Footer';
