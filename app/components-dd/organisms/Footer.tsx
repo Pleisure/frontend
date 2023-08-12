@@ -1,4 +1,4 @@
-import joinStrings from '@/app/libs-dd/utils/joinStrings';
+import joinClassNames from '@/app/libs-dd/utils/joinClassNames';
 import Link from 'next/link';
 import Txt from '../atoms/Txt';
 
@@ -13,7 +13,7 @@ export default function Footer({ type, root }: FooterProps) {
       <nav className='grid w-full grid-cols-4 gap-1 px-5'>
         <Link
           href={'/'}
-          className={joinStrings(
+          className={joinClassNames(
             'flex flex-col items-center w-full h-full pt-2 pb-4',
             root === 'home' ? 'text-cyan-400 font-bold' : ''
           )}
@@ -41,7 +41,7 @@ export default function Footer({ type, root }: FooterProps) {
 
         <Link
           href={'/leisures'}
-          className={joinStrings(
+          className={joinClassNames(
             'flex flex-col items-center w-full h-full pt-2 pb-4',
             root === 'leisures' ? 'text-cyan-400 font-bold' : ''
           )}
@@ -69,7 +69,7 @@ export default function Footer({ type, root }: FooterProps) {
 
         <Link
           href={'/community'}
-          className={joinStrings(
+          className={joinClassNames(
             'flex flex-col items-center w-full h-full pt-2 pb-4',
             root === 'community' ? 'text-cyan-400 font-bold' : ''
           )}
@@ -97,7 +97,7 @@ export default function Footer({ type, root }: FooterProps) {
 
         <Link
           href={'/my-page'}
-          className={joinStrings(
+          className={joinClassNames(
             'flex flex-col items-center w-full h-full pt-2 pb-4',
             root === 'myPage' ? 'text-cyan-400 font-bold' : ''
           )}

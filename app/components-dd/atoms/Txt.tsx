@@ -1,4 +1,4 @@
-import joinStrings from '@/app/libs-dd/utils/joinStrings';
+import joinClassNames from '@/app/libs-dd/utils/joinClassNames';
 import { HTMLAttributes } from 'react';
 
 interface Props extends HTMLAttributes<HTMLSpanElement> {
@@ -23,7 +23,7 @@ export default function Txt({
 }: Props) {
   return (
     <p
-      className={joinStrings(
+      className={joinClassNames(
         TYPOGRAPH_VARIANT[typography],
         isBold ? 'font-bold' : '',
         isItalics ? 'italic' : '',

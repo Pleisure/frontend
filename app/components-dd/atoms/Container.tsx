@@ -1,4 +1,4 @@
-import joinStrings from '@/app/libs-dd/utils/joinStrings';
+import joinClassNames from '@/app/libs-dd/utils/joinClassNames';
 import { HTMLAttributes } from 'react';
 
 interface Props extends HTMLAttributes<HTMLDivElement> {
@@ -7,5 +7,5 @@ interface Props extends HTMLAttributes<HTMLDivElement> {
 }
 
 export default function Container({ children, className = '' }: Props) {
-  return <div className={joinStrings('bg-transparent', className)}>{children}</div>;
+  return <div className={joinClassNames('bg-transparent', className)}>{children}</div>;
 }

@@ -1,4 +1,4 @@
-import joinStrings from '@/app/libs-dd/utils/joinStrings';
+import joinClassNames from '@/app/libs-dd/utils/joinClassNames';
 
 interface Props {
   children?: never;
@@ -21,5 +21,5 @@ export default function Spacing({ size = 0 }: Props) {
       spacing = `h-[${size}px]`;
       break;
   }
-  return <div className={joinStrings('bg-transparent flex-none', spacing)} />;
+  return <div className={joinClassNames('bg-transparent flex-none', spacing)} />;
 }

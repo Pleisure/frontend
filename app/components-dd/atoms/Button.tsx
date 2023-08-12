@@ -1,4 +1,4 @@
-import joinStrings from '@/app/libs-dd/utils/joinStrings';
+import joinClassNames from '@/app/libs-dd/utils/joinClassNames';
 import { ButtonHTMLAttributes } from 'react';
 
 interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
@@ -8,7 +8,7 @@ interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
 }
 
 export function Button({ variant = 'primary', size = 'medium', isWidthFull = false, ...props }: Props) {
-  return <button className={joinStrings(TYPE_VARIANTS[variant], SIZE_VARIANTS[size])} {...props} />;
+  return <button className={joinClassNames(TYPE_VARIANTS[variant], SIZE_VARIANTS[size])} {...props} />;
 }
 
 const TYPE_VARIANTS = {
