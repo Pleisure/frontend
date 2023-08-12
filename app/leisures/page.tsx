@@ -2,21 +2,21 @@
 
 import Link from 'next/link';
 
-import Spacing from '../dd-components/atoms/Spacing';
-import Txt from '../dd-components/atoms/Txt';
-import Banner from '../dd-components/molecules/Banner';
-import Section from '../dd-components/molecules/Section';
-import StoreCard from '../dd-components/molecules/StoreCard';
-import PageLayout from '../dd-components/organisms/PageLayout';
-import Container from '../dd-components/atoms/Container';
-import { Button } from '../dd-components/atoms/Button';
+import Spacing from '../components-dd/atoms/Spacing';
+import Txt from '../components-dd/atoms/Txt';
+import Banner from '../components-dd/molecules/Banner';
+import Section from '../components-dd/molecules/Section';
+import StoreCard from '../components-dd/molecules/StoreCard';
+import PageLayout from '../components-dd/organisms/PageLayout';
+import Container from '../components-dd/atoms/Container';
+import { Button } from '../components-dd/atoms/Button';
 
 import { ICategory } from '../dd-libs/hooks/useLeisureCategories';
 import { ILeisureStore } from '../dd-libs/hooks/useLeisureStores';
 import { IBanner } from '../dd-libs/hooks/useBanners';
-import Dropdown from '../dd-components/atoms/Dropdown';
+import Dropdown from '../components-dd/atoms/Dropdown';
 import { useState } from 'react';
-import LeisureCategory from '../dd-components/molecules/LeisureCategory';
+import LeisureCategory from '../components-dd/molecules/LeisureCategory';
 
 export default function Home() {
   const banners: IBanner[] = [
