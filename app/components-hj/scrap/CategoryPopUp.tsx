@@ -42,7 +42,7 @@ export default function PopUp() {
       <ul
         className={`${
           show ? 'popup-list active' : 'popup-list'
-        } fixed bottom-0 z-[99] w-[28rem] px-3 py-3 category-pop-up bg-white rounded-t-xl`}
+        } fixed bottom-0 z-[99] w-full max-w-md px-3 py-3 category-pop-up bg-white rounded-t-xl`}
       >
         {CATEGORY_LIST.map(({ id, name, scrapCount }) => {
           return (
