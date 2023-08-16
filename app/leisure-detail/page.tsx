@@ -1,10 +1,10 @@
 import Header from '../components-hj/leisure-detail/organisms/Header';
-import StorePost from '../components-hj/leisure-detail/StorePost';
-import VisitorPost from '../components-hj/leisure-detail/VisitorPost';
+import StorePost from '../components-hj/leisure-detail/organisms/StorePost';
 import Nav from '../components-hj/leisure-detail/organisms/Nav';
-import StoreInfo from '../components-hj/leisure-detail/StoreInfo';
-import Review from '../components-hj/leisure-detail/Review';
 import Button from '../components-hj/leisure-detail/atoms/Button';
+import VisitorPost from '../components-hj/leisure-detail/organisms/VisitorPost';
+import StoreInfo from '../components-hj/leisure-detail/organisms/StoreInfo';
+import Review from '../components-hj/leisure-detail/organisms/Review';
 
 export default function LeisureDetail() {
   return (

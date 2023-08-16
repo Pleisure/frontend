@@ -1,5 +1,5 @@
-import Button from './atoms/Button';
-import Rating from './molecules/Rating';
+import Button from '../atoms/Button';
+import Rating from '../molecules/Rating';
 import ReviewArticle from './ReviewArticle';
 
 export default function Review() {

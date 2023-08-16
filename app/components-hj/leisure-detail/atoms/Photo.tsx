@@ -1,11 +1,14 @@
-import { SlideProps, photoSlideStyle } from './Slide';
+import { SlideProps } from './Slide';
 
-interface Props extends SlideProps {}
+interface Props extends SlideProps {
+  divStyle: string;
+  imgStyle: string;
+}
 
-export default function Photo({ imgUrl, width }: Props) {
+export default function Photo({ imgUrl, divStyle, imgStyle }: Props) {
   return (
-    <div className={`${photoSlideStyle[width]} shrink-0`}>
-      <img src={imgUrl} className="rounded-lg" />
+    <div className={divStyle}>
+      <img src={imgUrl} className={imgStyle} />
     </div>
   );
 }

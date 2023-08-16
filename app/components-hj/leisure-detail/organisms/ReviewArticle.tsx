@@ -1,7 +1,7 @@
 'use client';
 
-import Icon from './atoms/Icon';
-import Slide from './atoms/Slide';
+import Icon from '../atoms/Icon';
+import Slide from '../atoms/Slide';
 
 type Props = {
   i: number;

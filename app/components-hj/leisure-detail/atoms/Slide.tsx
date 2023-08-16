@@ -4,7 +4,7 @@ import Photo from './Photo';
 
 export interface SlideProps {
   imgUrl: string;
-  width: string;
+  width?: string;
   gap?: string;
   data?: number[]; // 임시 배열
 }
@@ -28,7 +28,14 @@ export default function Slide({ imgUrl, width, data, gap }: SlideProps) {
       } my-4 overflow-hidden`}
     >
       {data?.map((i) => {
-        return <Photo key={i} imgUrl={imgUrl} width={width} />;
+        return (
+          <Photo
+            key={i}
+            imgUrl={imgUrl}
+            divStyle={`${photoSlideStyle[width!]} shrink-0`}
+            imgStyle="rounded-lg"
+          />
+        );
       })}
     </div>
   );

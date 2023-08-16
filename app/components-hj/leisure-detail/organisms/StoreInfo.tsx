@@ -1,9 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import Map from './molecules/Map';
 import CEOInfo from './CEOInfo';
-import Icon from './atoms/Icon';
+import Icon from '../atoms/Icon';
+import Map from '../molecules/Map';
 
 export default function StoreInfo() {
   const [show, setShow] = useState(false);

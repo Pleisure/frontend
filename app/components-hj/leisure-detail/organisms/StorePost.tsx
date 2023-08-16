@@ -1,7 +1,7 @@
 'use client';
 
-import PostSlide from './PostSlide';
-import Icon from './atoms/Icon';
+import StorePostSlide from './StorePostSlide';
+import Icon from '../atoms/Icon';
 
 interface Props {
   category: string;
@@ -17,8 +17,8 @@ export default function StorePost({
   reviewCnt,
 }: Props) {
   return (
-    <section className="mb-10 store-post">
-      <PostSlide />
+    <section className="mb-10 overflow-hidden store-post">
+      <StorePostSlide />
       <div className="px-4 store-title">
         <p className="mt-4 text-sm text-lightGrayTxt">{category}</p>
         <div className="my-2 overflow-hidden text-lg break-all title-txt text-ellipsis">
