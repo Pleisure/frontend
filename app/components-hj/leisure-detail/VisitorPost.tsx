@@ -1,4 +1,5 @@
-import PhotoSlide from './PhotoSlide';
+import Button from './atoms/Button';
+import Slide from './atoms/Slide';
 
 export default function VisitorPost() {
   return (
@@ -8,18 +9,18 @@ export default function VisitorPost() {
       </div>
 
       {/* visitor photo slide */}
-      <PhotoSlide
+      <Slide
         imgUrl="/images/leisure-detail/test-visitor-img.jpeg"
-        width={44}
-        gap={3}
+        width="visitorWidth"
+        gap="visitorGap"
         data={[1, 2, 3, 4]}
       />
 
-      <div className="visitor-post-btn">
-        <button className="w-full bg-white btn btn-active border-1 border-cyanTxt text-cyanTxt hover:bg-white hover:border-cyanTxt">
-          방문자 포스트 더보기
-        </button>
-      </div>
+      <Button
+        divStyle="visitor-post-btn"
+        buttonStyle="w-full bg-white btn btn-active border-1 border-cyanTxt text-cyanTxt hover:bg-white hover:border-cyanTxt"
+        content="방문자 포스트 더보기"
+      />
     </section>
   );
 }

@@ -1,13 +1,29 @@
 'use client';
 
-import PhotoSlide from './PhotoSlide';
+import Icon from './atoms/Icon';
+import Slide from './atoms/Slide';
 
-type PropsType = {
+type Props = {
   i: number;
   length: number;
+  profileImgUrl: string;
+  name: string;
+  createdAt: string;
+  age: number;
+  sex: string;
+  content: string;
 };
 
-export default function ReviewArticle({ i, length }: PropsType) {
+export default function ReviewArticle({
+  i,
+  length,
+  profileImgUrl,
+  name,
+  createdAt,
+  age,
+  sex,
+  content,
+}: Props) {
   return (
     <article
       className={`pb-8 pt-8 review-article ${
@@ -19,31 +35,28 @@ export default function ReviewArticle({ i, length }: PropsType) {
         <div className="flex">
           {/* 프로필 이미지 */}
           <div className="profile-img w-10 h-10 border-[1px] rounded-full">
-            <img
-              src="/images/leisure-detail/test-profile-img.png"
-              className="w-full rounded-full"
-            />
+            <img src={profileImgUrl} className="w-full rounded-full" />
           </div>
           {/* 리뷰어 정보 / 별점 / 시간 */}
           <div className="ml-3">
-            <p className="font-bold">앙두</p>
+            <p className="font-bold">{name}</p>
             <div className="flex items-center text-sm rating-stars text-lightGrayTxt">
               {[1, 2, 3, 4, 5].map((i) => {
                 return (
                   <span key={i}>
-                    <svg
-                      xmlns="http://www.w3.org/2000/svg"
+                    <Icon
                       className="w-5 h-5 -m-[1px] text-cyanTxt"
                       viewBox="0 0 20 20"
                       fill="currentColor"
-                    >
-                      <path d="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z" />
-                    </svg>
+                      pathD="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                    />
                   </span>
                 );
               })}
-              <span className="mx-3">1시간 전</span>
-              <span>29/여</span>
+              <span className="mx-3">{createdAt}</span>
+              <span>
+                {age}/{sex}
+              </span>
             </div>
           </div>
         </div>
@@ -51,10 +64,10 @@ export default function ReviewArticle({ i, length }: PropsType) {
       </div>
 
       {/* review photo slide  */}
-      <PhotoSlide
+      <Slide
         imgUrl="/images/leisure-detail/test-visitor-img.jpeg"
-        width={32}
-        gap={2}
+        width="reviewWidth"
+        gap="reviewGap"
         data={[1, 2, 3, 4]}
       />
 
@@ -64,8 +77,7 @@ export default function ReviewArticle({ i, length }: PropsType) {
           <span className="float-right text-sm more mt-[1.6rem] text-lightGrayTxt cursor-pointer">
             더보기
           </span>
-          사장님이 너무 친절했어요. 그리고 시설도 너무 깨끗해요. 저희 집보다
-          깨끗한 것 같아요. 또 가고싶어요. 풍경도, 조식도 너무 만족스러웠어요!!!
+          {content}
         </p>
       </div>
       <style jsx>{`

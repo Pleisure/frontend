@@ -1,8 +1,9 @@
 'use client';
 
 import { useState } from 'react';
-import NaverMap from './NaverMap';
+import Map from './molecules/Map';
 import CEOInfo from './CEOInfo';
+import Icon from './atoms/Icon';
 
 export default function StoreInfo() {
   const [show, setShow] = useState(false);
@@ -12,39 +13,31 @@ export default function StoreInfo() {
       <div className="detail-info">
         <div className="flex gap-5 mb-3 store-business-hours">
           <p className="flex items-center font-bold">
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
+            <Icon
               className="w-5 h-5 mr-2 opacity-30"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
               strokeWidth={2}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
-              />
-            </svg>
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              pathD="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
+            />
             <span>영업 중</span>
           </p>
           <div className="flex items-center bussiness-hours">
             <p>오후 10:00까지</p>
-            <svg
-              xmlns="http://www.w3.org/2000/svg"
+            <Icon
               className="flex items-center w-[1.2rem] h-[1.2rem] ml-1 cursor-pointer"
               fill="none"
               viewBox="0 0 24 24"
               stroke="currentColor"
               strokeWidth={2}
+              strokeLinecap="round"
+              strokeLinejoin="round"
+              pathD="M19 9l-7 7-7-7"
               onClick={() => setShow(!show)}
-            >
-              <path
-                strokeLinecap="round"
-                strokeLinejoin="round"
-                d="M19 9l-7 7-7-7"
-              />
-            </svg>
+            />
           </div>
         </div>
         {show && (
@@ -66,33 +59,28 @@ export default function StoreInfo() {
         {STORE_INFO.map(({ infoId, iconTag, content }) => {
           return (
             <p key={infoId} className="flex items-center mb-3">
-              <svg
-                xmlns="http://www.w3.org/2000/svg"
+              <Icon
                 className="w-5 h-5 mr-2 opacity-30"
                 fill="none"
                 viewBox="0 0 24 24"
                 stroke="currentColor"
                 strokeWidth={2}
-              >
-                <path
-                  strokeLinecap="round"
-                  strokeLinejoin="round"
-                  d={iconTag}
-                />
-                {infoId === 3 && (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    d="M15 11a3 3 0 11-6 0 3 3 0 016 0z"
-                  />
-                )}
-              </svg>
+                strokeLinecap="round"
+                strokeLinejoin="round"
+                pathD={iconTag}
+                isPathDtwo={infoId === 3 ? true : false}
+                strokeLinecap2={infoId === 3 ? 'round' : undefined}
+                strokeLinejoin2={infoId === 3 ? 'round' : undefined}
+                pathD2={
+                  infoId === 3 ? 'M15 11a3 3 0 11-6 0 3 3 0 016 0z' : undefined
+                }
+              />
               <span>{content}</span>
             </p>
           );
         })}
       </div>
-      <NaverMap />
+      <Map />
       <CEOInfo />
     </section>
   );
