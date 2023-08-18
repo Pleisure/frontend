@@ -21,16 +21,9 @@ module.exports = {
       },
     },
   },
-  plugins: [require('daisyui')],
+  plugins: [require('daisyui'), require('tailwind-scrollbar-hide')],
   daisyui: {
-    themes: [
-      {
-        mytheme: {
-          info: '#22d3ee',
-        },
-      },
-      'emerald',
-    ],
+    themes: ['emerald'],
     darkTheme: false,
     base: true,
     styled: true,
