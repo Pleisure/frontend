@@ -1,4 +1,5 @@
 import Txt from '../components-dd/atoms/Txt';
+import SortButton from '../components-yul/SortButton';
 import Stars from '../components-yul/Stars';
 import Summary from '../components-yul/Summary';
 import { Fetcher } from './fetcher';
@@ -19,7 +20,9 @@ export default function Home() {
         </span>
       </div>
 
-      <div>[정렬 버튼]</div>
+      <div>
+        <SortButton />
+      </div>
 
       <div>
         {reviews.map((review) => (
