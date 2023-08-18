@@ -1,7 +1,7 @@
 'use client';
 
 import React, { useState } from 'react';
-import IconSvg from './atoms/IconSvg';
+import IconSvg from '../atoms/IconSvg';
 
 export default function PopUp() {
   const [show, setShow] = useState(false);

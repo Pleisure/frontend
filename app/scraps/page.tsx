@@ -1,7 +1,7 @@
 import '@/app/globals.css';
-import CategoryPopUp from '@/app/components-hj/scrap/CategoryPopUp';
-import LeisureStorePost from '@/app/components-hj/scrap/LeisureStorePost';
 import Header from '../components-hj/scrap/molecules/Header';
+import CategoryPopUp from '@/app/components-hj/scrap/organisms/CategoryPopUp';
+import LeisureStorePost from '../components-hj/scrap/organisms/LeisureStorePost';
 
 export default function Scrap() {
   const textImg = '/images/scrap/test_thumbnail.jpeg';

@@ -1,4 +1,4 @@
-import IconSvg from './atoms/IconSvg';
+import IconSvg from '../atoms/IconSvg';
 
 interface Props {
   imgUrl: string;
