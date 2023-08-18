@@ -12,17 +12,24 @@ module.exports = {
         'gradient-conic':
           'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
+      colors: {
+        grayBg: '#e5e7eb',
+        darkGrayBg: '#d1d5db',
+        lightGrayTxt: '#6b7280',
+        grayTxt: '#111827',
+        cyanTxt: '#22d3ee',
+      },
     },
   },
-  plugins: [require("daisyui")],
+  plugins: [require('daisyui'), require('tailwind-scrollbar-hide')],
   daisyui: {
-    themes: ["emerald"],
+    themes: ['emerald'],
     darkTheme: false,
     base: true,
     styled: true,
     utils: true,
     rtl: false,
-    prefix: "",
+    prefix: '',
     logs: false,
   },
-}
+};
