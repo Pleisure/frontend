@@ -9,11 +9,13 @@ module.exports = {
     extend: {
       backgroundImage: {
         'gradient-radial': 'radial-gradient(var(--tw-gradient-stops))',
-        'gradient-conic': 'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
+        'gradient-conic':
+          'conic-gradient(from 180deg at 50% 50%, var(--tw-gradient-stops))',
       },
       colors: {
         grayBg: '#e5e7eb',
         darkGrayBg: '#d1d5db',
+        lightGrayTxt: '#6b7280',
         grayTxt: '#111827',
         cyanTxt: '#22d3ee',
       },
