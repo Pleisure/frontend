@@ -1,4 +1,5 @@
 import Txt from '../components-dd/atoms/Txt';
+import ReviewContent from '../components-yul/ReviewContent';
 import SortButton from '../components-yul/SortButton';
 import Stars from '../components-yul/Stars';
 import Summary from '../components-yul/Summary';
@@ -31,9 +32,7 @@ export default function Home() {
               <span className="flex flex-row">
                 <span>
                   <img
-                    src={
-                      'https://yt3.ggpht.com/bUQjbuX5alVXIz0jEb2ZtUEUmM16WvpYurWevC6TeK2y5BBWlFTkaZ90aHtF0pySU7PLEZ7h=s88-c-k-c0x00ffffff-no-rj'
-                    }
+                    src={review.reviewWriterProfileImgUrl}
                     style={{ width: 45, height: 45 }}
                   />
                 </span>
@@ -58,21 +57,13 @@ export default function Home() {
             <div>
               <span>
                 <img
-                  src={
-                    'https://phinf.pstatic.net/checkout/20220407_263/1649300509323GnJ6Q_JPEG/2002035604366722.jpg'
-                  }
+                  src={review.storeReviewPhotoUrls[0]}
+                  style={{ width: 100, height: 100 }}
                 />
               </span>
-              {review.storeReviewContent.length > 100 ? (
-                <span>
-                  <p>{review.storeReviewContent.substring(0, 100) + ' ...'}</p>
-                  <button>더보기</button>
-                </span>
-              ) : (
-                <span>
-                  <p>{review.storeReviewContent}</p>
-                </span>
-              )}
+              <span>
+                <ReviewContent content={review.storeReviewContent} />
+              </span>
             </div>
           </div>
         ))}
