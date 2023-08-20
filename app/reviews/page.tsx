@@ -1,4 +1,5 @@
 import Txt from '../components-dd/atoms/Txt';
+import Gender from '../components-yul/gender';
 import RelativeTime from '../components-yul/RelativeTime';
 import ReviewContent from '../components-yul/ReviewContent';
 import SortButton from '../components-yul/SortButton';
@@ -33,7 +34,7 @@ export default function Home() {
               <span className="flex flex-row">
                 <span>
                   <img
-                    src={review.reviewWriterProfileImgUrl}
+                    src={review.reviewWriterProfilePictureUrl}
                     style={{ width: 45, height: 45 }}
                   />
                 </span>
@@ -48,7 +49,10 @@ export default function Home() {
                         <RelativeTime dateString={review.createdAt} />
                       </span>
                       <span className="mx-1">·</span>
-                      <span>28/여</span>
+                      <span>
+                        {review.reviewWriterAge}세/
+                        <Gender value={review.reviewWriterGender} />
+                      </span>
                     </span>
                   </div>
                 </span>
