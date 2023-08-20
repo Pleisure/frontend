@@ -1,4 +1,5 @@
 import Txt from '../components-dd/atoms/Txt';
+import RelativeTime from '../components-yul/RelativeTime';
 import ReviewContent from '../components-yul/ReviewContent';
 import SortButton from '../components-yul/SortButton';
 import Stars from '../components-yul/Stars';
@@ -43,7 +44,9 @@ export default function Home() {
                       <Stars rating={review.storeReviewRating} />
                     </span>
                     <span className="text-gray-500">
-                      <span>{review.createdAt.substring(0, 10)}</span>
+                      <span>
+                        <RelativeTime dateString={review.createdAt} />
+                      </span>
                       <span className="mx-1">·</span>
                       <span>28/여</span>
                     </span>

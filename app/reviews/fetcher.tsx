@@ -77,7 +77,7 @@ export abstract class Fetcher {
           'https://upload.wikimedia.org/wikipedia/commons/5/55/Water_skiing_0754.jpg',
           'https://www.kocis.go.kr/CONTENTS/editImage/20220511170717803_8GI2Z6Y1.jpg',
         ],
-        createdAt: '2023-08-05T12:00:00.000Z',
+        createdAt: '2023-08-20T02:00:00.000Z',
       },
       {
         reviewWriterNickname: '스폰지밥',
@@ -91,7 +91,7 @@ export abstract class Fetcher {
           'https://ak-d.tripcdn.com/images/1mj0112000bh6rdxt7E56_Z_640_10000_R5.png_.webp?proc=autoorient',
           'https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/5900367515/B.png?476000000',
         ],
-        createdAt: '2023-08-03T12:00:00.000Z',
+        createdAt: '2023-08-15T12:00:00.000Z',
       },
       {
         reviewWriterNickname: '뚱이',
