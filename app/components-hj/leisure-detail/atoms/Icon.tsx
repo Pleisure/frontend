@@ -1,6 +1,6 @@
 import { MouseEventHandler } from 'react';
 
-export interface Iicon {
+interface Iicon {
   className: string;
   viewBox?: string | undefined;
   fill?: string | undefined;

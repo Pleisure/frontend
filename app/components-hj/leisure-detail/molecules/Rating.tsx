@@ -2,7 +2,7 @@ import Icon from '../atoms/Icon';
 
 export default function Rating() {
   return (
-    <div className="flex items-center justify-around mt-20 mx-2 pb-10 rating border-b-[1px]">
+    <div className="flex items-center justify-around mt-20 mb-8 mx-2 pb-10 rating border-b-[1px]">
       <div className="flex items-center w-[90%]">
         <Icon
           className="w-16 h-16 text-cyanTxt"
