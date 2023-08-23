@@ -1,6 +1,6 @@
 'use client';
 
-import { useEffect, useRef, useState } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import Photo from '../atoms/Photo';
 import SlideBtn from '../molecules/SlideBtn';
 
@@ -15,6 +15,8 @@ export default function StorePostSlide() {
   const slideRef = useRef<HTMLDivElement>(null);
   const [slideIndex, setSlideIndex] = useState(0);
   const [slideTransition, setSlideTransition] = useState('transition-all');
+  const [touchedX, setTouchedX] = useState(0);
+  const [touchedY, setTouchedY] = useState(0);
 
   useEffect(() => {
     if (slideRef.current) {
@@ -54,13 +56,37 @@ export default function StorePostSlide() {
     }, 10);
   };
 
+  // 📱 mobile version 터치 드래그
+  // 터치를 한 x좌표
+  const onTouchStart = (e: React.TouchEvent) => {
+    setTouchedX(e.changedTouches[0].pageX);
+    setTouchedY(e.changedTouches[0].pageY);
+  };
+
+  // 터치를 뗀 x좌표
+  const onTouchEnd = (e: React.TouchEvent) => {
+    const distanceX = touchedX - e.changedTouches[0].pageX; // 터치를 한 x좌표 - 터치를 뗀 x좌표
+    const distanceY = touchedY - e.changedTouches[0].pageY; // 터치를 한 y좌표 - 터치를 뗀 y좌표
+    const vector = Math.abs(distanceX / distanceY);
+
+    if (distanceX > 30 && vector > 2) {
+      handleSlide('next');
+    } else if (distanceX < -30 && vector > 2) {
+      handleSlide('prev');
+    }
+  };
+
   return (
-    <div className="relative max-w-md">
+    <div className="relative">
       <div
         ref={slideRef}
         className={`${slideTransition} slide-container bg-grayBg`}
+        onTouchEnd={onTouchEnd}
+        onTouchStart={onTouchStart}
       >
         <div className="flex slide-inner">
+          {/* 사진은 도대체 왜 잘리는걸까... 어디를 수정해야하는 걸까... 짜증나... */}
+          {/* 마지막 -> 처음 / 처음 -> 마지막 이동하는 거 부드럽게 리팩토링하기 */}
           {TEST_SLIDE.map(({ id, imgUrl }) => {
             return (
               <Photo
@@ -75,12 +101,12 @@ export default function StorePostSlide() {
       </div>
       <SlideBtn
         direction="prev"
-        onClick={() => handleSlide('prev')}
+        onMouseUp={() => handleSlide('prev')}
         IconPathD="M15 19l-7-7 7-7"
       />
       <SlideBtn
         direction="next"
-        onClick={() => handleSlide('next')}
+        onMouseUp={() => handleSlide('next')}
         IconPathD="M9 5l7 7-7 7"
       />
       <div className="absolute bottom-4 left-[50%] -translate-x-[50%] rounded-full slide-cnt bg-[rgba(209,213,219,0.5)]">
