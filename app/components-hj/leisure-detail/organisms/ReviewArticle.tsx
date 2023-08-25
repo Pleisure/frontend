@@ -3,6 +3,8 @@
 import { IReviewList } from '@/app/types-hj/IStores';
 import Icon from '../atoms/Icon';
 import Slide from '../atoms/Slide';
+import { useState } from 'react';
+import RelativeTime from '@/app/libs-hj/utils/RelativeTime';
 
 interface ArticleProps extends IReviewList {
   dataIdx: number;
@@ -21,7 +23,12 @@ export default function ReviewArticle({
   storeReviewRating,
   storeReviewPhotoUrls,
 }: ArticleProps) {
+  const [moreBtn, setMoreBtn] = useState(false);
+
   const starsCnt = new Array(storeReviewRating).fill(storeReviewRating);
+  while (starsCnt.length < 5) {
+    starsCnt.push(0);
+  }
 
   return (
     <article className={`pb-6 pt-6 review-article`}>
@@ -42,19 +49,32 @@ export default function ReviewArticle({
               {starsCnt.map((v, i) => {
                 return (
                   <span key={i}>
-                    <Icon
-                      className="w-5 h-5 -m-[1px] text-cyanTxt"
-                      viewBox="0 0 20 20"
-                      fill="currentColor"
-                      pathD="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
-                    />
+                    {v === 0 ? (
+                      <Icon
+                        className="w-[1.1rem] h-[1.1rem] text-cyanTxt emptyStar"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                        strokeLinecap="round"
+                        strokeLinejoin="round"
+                        pathD="M11.049 2.927c.3-.921 1.603-.921 1.902 0l1.519 4.674a1 1 0 00.95.69h4.915c.969 0 1.371 1.24.588 1.81l-3.976 2.888a1 1 0 00-.363 1.118l1.518 4.674c.3.922-.755 1.688-1.538 1.118l-3.976-2.888a1 1 0 00-1.176 0l-3.976 2.888c-.783.57-1.838-.197-1.538-1.118l1.518-4.674a1 1 0 00-.363-1.118l-3.976-2.888c-.784-.57-.38-1.81.588-1.81h4.914a1 1 0 00.951-.69l1.519-4.674z"
+                      />
+                    ) : (
+                      <Icon
+                        className="w-5 h-5 -m-[1px] text-cyanTxt fillStar"
+                        viewBox="0 0 20 20"
+                        fill="currentColor"
+                        pathD="M9.049 2.927c.3-.921 1.603-.921 1.902 0l1.07 3.292a1 1 0 00.95.69h3.462c.969 0 1.371 1.24.588 1.81l-2.8 2.034a1 1 0 00-.364 1.118l1.07 3.292c.3.921-.755 1.688-1.54 1.118l-2.8-2.034a1 1 0 00-1.175 0l-2.8 2.034c-.784.57-1.838-.197-1.539-1.118l1.07-3.292a1 1 0 00-.364-1.118L2.98 8.72c-.783-.57-.38-1.81.588-1.81h3.461a1 1 0 00.951-.69l1.07-3.292z"
+                      />
+                    )}
                   </span>
                 );
               })}
-              <span className="mx-3">{createdAt}</span>
+              <span className="mx-3">{RelativeTime(createdAt)}</span>
               <span>
                 {/* 10대, 20대로 바꾸기 */}
-                {`${reviewWriterAge.toString()[0]}0대`} /{' '}
+                {`${reviewWriterAge.toString()[0]}0대`}/
                 {reviewWriterGender === 'FEMALE' ? '여' : '남'}
               </span>
             </div>
@@ -69,16 +89,29 @@ export default function ReviewArticle({
       {/* review content */}
       <div className="mb-8 review-content">
         <p className="overflow-hidden break-all review-content__text content text-ellipsis">
-          <span className="float-right text-sm more mt-[1.6rem] text-lightGrayTxt cursor-pointer">
-            더보기
-          </span>
+          {storeReviewContent.length > 70 && !moreBtn && (
+            <span
+              className="float-right text-sm more mt-[1.6rem] text-lightGrayTxt cursor-pointer"
+              onClick={() => setMoreBtn(true)}
+            >
+              더보기
+            </span>
+          )}
           {storeReviewContent}
+          {storeReviewContent.length > 70 && moreBtn && (
+            <p
+              className="text-sm text-right cursor-pointer text-lightGrayTxt"
+              onClick={() => setMoreBtn(false)}
+            >
+              접기
+            </p>
+          )}
         </p>
       </div>
       {dataIdx === dataLength - 1 || <hr className="mt-12" />}
       <style jsx>{`
         .content {
-          display: -webkit-box;
+          display: ${moreBtn ? '' : '-webkit-box'};
           -webkit-line-clamp: 2;
           -webkit-box-orient: vertical;
         }
