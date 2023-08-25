@@ -1,29 +1,28 @@
 'use client';
 
+import { IReviewList } from '@/app/types-hj/IStores';
 import Icon from '../atoms/Icon';
 import Slide from '../atoms/Slide';
 
-type Props = {
+interface ArticleProps extends IReviewList {
   dataIdx: number;
   dataLength: number;
-  profileImgUrl: string;
-  name: string;
-  createdAt: string;
-  age: number;
-  sex: string;
-  content: string;
-};
+}
 
 export default function ReviewArticle({
   dataIdx,
   dataLength,
-  profileImgUrl,
-  name,
+  reviewWriterProfilePictureUrl,
+  reviewWriterNickname,
   createdAt,
-  age,
-  sex,
-  content,
-}: Props) {
+  reviewWriterAge,
+  reviewWriterGender,
+  storeReviewContent,
+  storeReviewRating,
+  storeReviewPhotoUrls,
+}: ArticleProps) {
+  const starsCnt = new Array(storeReviewRating).fill(storeReviewRating);
+
   return (
     <article className={`pb-6 pt-6 review-article`}>
       {/* review profile */}
@@ -31,13 +30,16 @@ export default function ReviewArticle({
         <div className="flex">
           {/* 프로필 이미지 */}
           <div className="profile-img w-10 h-10 border-[1px] rounded-full">
-            <img src={profileImgUrl} className="w-full rounded-full" />
+            <img
+              src={reviewWriterProfilePictureUrl}
+              className="w-full rounded-full"
+            />
           </div>
           {/* 리뷰어 정보 / 별점 / 시간 */}
           <div className="ml-3">
-            <p className="font-bold">{name}</p>
+            <p className="font-bold">{reviewWriterNickname}</p>
             <div className="flex items-center text-sm rating-stars text-lightGrayTxt">
-              {[1, 2, 3, 4, 5].map((i) => {
+              {starsCnt.map((v, i) => {
                 return (
                   <span key={i}>
                     <Icon
@@ -51,7 +53,9 @@ export default function ReviewArticle({
               })}
               <span className="mx-3">{createdAt}</span>
               <span>
-                {age}/{sex}
+                {/* 10대, 20대로 바꾸기 */}
+                {`${reviewWriterAge.toString()[0]}0대`} /{' '}
+                {reviewWriterGender === 'FEMALE' ? '여' : '남'}
               </span>
             </div>
           </div>
@@ -60,12 +64,7 @@ export default function ReviewArticle({
       </div>
 
       {/* review photo slide  */}
-      <Slide
-        imgUrl="/images/leisure-detail/test-visitor-img.jpeg"
-        width="reviewWidth"
-        gap="reviewGap"
-        data={[1, 2, 3, 4]}
-      />
+      <Slide width="reviewWidth" gap="reviewGap" data={storeReviewPhotoUrls} />
 
       {/* review content */}
       <div className="mb-8 review-content">
@@ -73,7 +72,7 @@ export default function ReviewArticle({
           <span className="float-right text-sm more mt-[1.6rem] text-lightGrayTxt cursor-pointer">
             더보기
           </span>
-          {content}
+          {storeReviewContent}
         </p>
       </div>
       {dataIdx === dataLength - 1 || <hr className="mt-12" />}
