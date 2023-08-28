@@ -23,6 +23,12 @@ export default function ReviewArticle({
 }: ArticleProps) {
   const starsCnt = new Array(storeReviewRating).fill(storeReviewRating);
 
+  function ageGroup(age: number) {
+    const stringAge = age.toString();
+    if (stringAge.length > 1) return `${stringAge[0]}0대`;
+    else if (stringAge.length === 1) return `10대`;
+  }
+
   return (
     <article className={`pb-6 pt-6 review-article`}>
       {/* review profile */}
@@ -53,8 +59,7 @@ export default function ReviewArticle({
               })}
               <span className="mx-3">{createdAt}</span>
               <span>
-                {/* 10대, 20대로 바꾸기 */}
-                {`${reviewWriterAge.toString()[0]}0대`} /{' '}
+                {ageGroup(reviewWriterAge)}/
                 {reviewWriterGender === 'FEMALE' ? '여' : '남'}
               </span>
             </div>

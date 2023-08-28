@@ -76,7 +76,7 @@ const REVIEW_ARTICLE_DATA: IReviewList[] = [
     reviewWriterNickname: '샤샤엘리',
     reviewWriterProfilePictureUrl:
       '/images/leisure-detail/test-profile-img.png',
-    reviewWriterAge: 38,
+    reviewWriterAge: 9,
     reviewWriterGender: 'FEMALE',
     storeReviewContent:
       '사장님이 너무 친절했어요. 그리고 시설도 너무 깨끗해요. 저희 집보다 깨끗한 것 같아요. 또 가고싶어요. 풍경도, 조식도 너무 만족스러웠어요!!!',
