@@ -1,5 +1,5 @@
-import Button from './atoms/Button';
-import Rating from './molecules/Rating';
+import Button from '../atoms/Button';
+import Rating from '../molecules/Rating';
 import ReviewArticle from './ReviewArticle';
 
 export default function Review() {
@@ -10,8 +10,8 @@ export default function Review() {
         return (
           <ReviewArticle
             key={i}
-            i={i}
-            length={a.length}
+            dataIdx={i}
+            dataLength={a.length}
             profileImgUrl="/images/leisure-detail/test-profile-img.png"
             name="앙두"
             createdAt="1시간 전"
@@ -22,7 +22,7 @@ export default function Review() {
         );
       })}
       <Button
-        divStyle="mt-2 all-review-btn"
+        divStyle="all-review-btn"
         buttonStyle="w-full bg-white btn btn-active border-1 border-cyanTxt text-cyanTxt hover:bg-white hover:border-cyanTxt"
         content="모든 리뷰 보기"
       />

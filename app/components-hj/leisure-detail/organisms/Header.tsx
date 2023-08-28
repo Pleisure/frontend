@@ -22,7 +22,7 @@ export default function Header({ title }: HeaderProps) {
           pathD="M15 19l-7-7 7-7"
         />
       </div>
-      <p className="w-[65%] overflow-hidden text-xl font-bold text-center break-all title-txt text-ellipsis">
+      <p className="max-w-[240px] overflow-hidden text-xl font-bold text-center break-all title-txt text-ellipsis">
         {title}
       </p>
       <div className="flex items-center cursor-pointer share w-9 h-9">

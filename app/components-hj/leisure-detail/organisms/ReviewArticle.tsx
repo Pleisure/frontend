@@ -1,11 +1,11 @@
 'use client';
 
-import Icon from './atoms/Icon';
-import Slide from './atoms/Slide';
+import Icon from '../atoms/Icon';
+import Slide from '../atoms/Slide';
 
 type Props = {
-  i: number;
-  length: number;
+  dataIdx: number;
+  dataLength: number;
   profileImgUrl: string;
   name: string;
   createdAt: string;
@@ -15,8 +15,8 @@ type Props = {
 };
 
 export default function ReviewArticle({
-  i,
-  length,
+  dataIdx,
+  dataLength,
   profileImgUrl,
   name,
   createdAt,
@@ -25,11 +25,7 @@ export default function ReviewArticle({
   content,
 }: Props) {
   return (
-    <article
-      className={`pb-8 pt-8 review-article ${
-        i === length - 1 ? 'border-b-none' : 'border-b-[1px]'
-      }`}
-    >
+    <article className={`pb-6 pt-6 review-article`}>
       {/* review profile */}
       <div className="flex justify-between review-profile">
         <div className="flex">
@@ -72,7 +68,7 @@ export default function ReviewArticle({
       />
 
       {/* review content */}
-      <div className="review-content">
+      <div className="mb-8 review-content">
         <p className="overflow-hidden break-all review-content__text content text-ellipsis">
           <span className="float-right text-sm more mt-[1.6rem] text-lightGrayTxt cursor-pointer">
             더보기
@@ -80,6 +76,7 @@ export default function ReviewArticle({
           {content}
         </p>
       </div>
+      {dataIdx === dataLength - 1 || <hr className="mt-12" />}
       <style jsx>{`
         .content {
           display: -webkit-box;

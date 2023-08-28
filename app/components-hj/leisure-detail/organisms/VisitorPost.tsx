@@ -1,5 +1,5 @@
-import Button from './atoms/Button';
-import Slide from './atoms/Slide';
+import Button from '../atoms/Button';
+import Slide from '../atoms/Slide';
 
 export default function VisitorPost() {
   return (

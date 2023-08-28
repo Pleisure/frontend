@@ -4,16 +4,12 @@ import Photo from './Photo';
 
 export interface SlideProps {
   imgUrl: string;
-  width: string;
-  gap?: string;
+  width?: 'reviewWidth' | 'visitorWidth';
+  gap?: 'reviewGap' | 'visitorGap';
   data?: number[]; // 임시 배열
 }
 
-export interface photoSlideStyleType {
-  [key: string]: string;
-}
-
-export const photoSlideStyle: photoSlideStyleType = {
+export const photoSlideStyle = {
   reviewWidth: 'w-32',
   visitorWidth: 'w-44',
   reviewGap: 'gap-2',
@@ -28,7 +24,14 @@ export default function Slide({ imgUrl, width, data, gap }: SlideProps) {
       } my-4 overflow-hidden`}
     >
       {data?.map((i) => {
-        return <Photo key={i} imgUrl={imgUrl} width={width} />;
+        return (
+          <Photo
+            key={i}
+            imgUrl={imgUrl}
+            divStyle={`${photoSlideStyle[width!]} shrink-0`}
+            imgStyle="rounded-lg"
+          />
+        );
       })}
     </div>
   );
