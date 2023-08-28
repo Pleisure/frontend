@@ -4,17 +4,17 @@ import StorePostSlide from './StorePostSlide';
 import Icon from '../atoms/Icon';
 
 interface Props {
-  categoryName: string;
-  storeTitleContent: string;
-  storeReviewsCount: number;
-  totalRatingAverage: number;
+  categoryName: string | undefined;
+  storeName: string | undefined;
+  storeReviewCount: number | undefined;
+  totalRatingAverage: number | undefined;
 }
 
 export default function StorePost({
   categoryName,
-  storeTitleContent,
+  storeName,
   totalRatingAverage,
-  storeReviewsCount,
+  storeReviewCount,
 }: Props) {
   return (
     <section className="mb-10 overflow-hidden store-post">
@@ -22,7 +22,7 @@ export default function StorePost({
       <div className="px-4 store-title">
         <p className="mt-4 text-sm text-lightGrayTxt">{categoryName}</p>
         <div className="my-2 overflow-hidden text-lg break-all title-txt text-ellipsis">
-          {storeTitleContent}
+          {storeName}
         </div>
         <div className="flex text-sm rating-review-box">
           <div className="flex rating">
@@ -37,7 +37,7 @@ export default function StorePost({
             <span className="ml-1 mr-3 font-bold">{totalRatingAverage}</span>
           </div>
           <div className="reviewCnt">
-            <p>리뷰 {storeReviewsCount > 1000 ? '999+' : storeReviewsCount}</p>
+            <p>리뷰 {storeReviewCount > 1000 ? '999+' : storeReviewCount}</p>
           </div>
         </div>
       </div>

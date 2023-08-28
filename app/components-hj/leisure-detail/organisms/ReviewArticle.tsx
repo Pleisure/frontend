@@ -24,6 +24,7 @@ export default function ReviewArticle({
   storeReviewPhotoUrls,
 }: ArticleProps) {
   const [moreBtn, setMoreBtn] = useState(false);
+  const reviewLengthMinimum = 70;
 
   const starsCnt = new Array(storeReviewRating).fill(storeReviewRating);
   while (starsCnt.length < 5) {
@@ -87,24 +88,18 @@ export default function ReviewArticle({
       <Slide width="reviewWidth" gap="reviewGap" data={storeReviewPhotoUrls} />
 
       {/* review content */}
-      <div className="mb-8 review-content">
+      <div className="mb-8 review-content" onClick={() => setMoreBtn(!moreBtn)}>
         <p className="overflow-hidden break-all review-content__text content text-ellipsis">
-          {storeReviewContent.length > 70 && !moreBtn && (
-            <span
-              className="float-right text-sm more mt-[1.6rem] text-lightGrayTxt cursor-pointer"
-              onClick={() => setMoreBtn(true)}
-            >
+          {storeReviewContent.length > reviewLengthMinimum && !moreBtn && (
+            <span className="float-right text-sm more mt-[1.6rem] text-lightGrayTxt cursor-pointer">
               더보기
             </span>
           )}
           {storeReviewContent}
-          {storeReviewContent.length > 70 && moreBtn && (
-            <p
-              className="text-sm text-right cursor-pointer text-lightGrayTxt"
-              onClick={() => setMoreBtn(false)}
-            >
+          {storeReviewContent.length > reviewLengthMinimum && moreBtn && (
+            <span className="block text-sm text-right cursor-pointer text-lightGrayTxt">
               접기
-            </p>
+            </span>
           )}
         </p>
       </div>

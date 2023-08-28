@@ -4,10 +4,10 @@ import React from 'react';
 import Icon from '../atoms/Icon';
 
 type HeaderProps = {
-  title: string;
+  storeName: string | undefined;
 };
 
-export default function Header({ title }: HeaderProps) {
+export default function Header({ storeName }: HeaderProps) {
   return (
     <header className="flex items-center justify-between px-4 mt-6 mb-3 previous">
       <div className="flex items-center cursor-pointer w-9 h-9">
@@ -23,7 +23,7 @@ export default function Header({ title }: HeaderProps) {
         />
       </div>
       <p className="max-w-[240px] overflow-hidden text-xl font-bold text-center break-all title-txt text-ellipsis">
-        {title}
+        {storeName}
       </p>
       <div className="flex items-center cursor-pointer share w-9 h-9">
         <Icon

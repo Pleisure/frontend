@@ -10,10 +10,9 @@ export default function VisitorPost() {
 
       {/* visitor photo slide */}
       <Slide
-        imgUrl="/images/leisure-detail/test-visitor-img.jpeg"
         width="visitorWidth"
         gap="visitorGap"
-        data={[1, 2, 3, 4]}
+        data={VISITOR_POST_DATA.postPhotoUrl}
       />
 
       <Button
@@ -24,3 +23,13 @@ export default function VisitorPost() {
     </section>
   );
 }
+
+const VISITOR_POST_DATA = {
+  postId: '1',
+  postPhotoUrl: [
+    { id: 1, imgUrl: '/images/leisure-detail/test-visitor-img.jpeg' },
+    { id: 2, imgUrl: '/images/leisure-detail/test-visitor-img.jpeg' },
+    { id: 3, imgUrl: '/images/leisure-detail/test-visitor-img.jpeg' },
+    { id: 4, imgUrl: '/images/leisure-detail/test-visitor-img.jpeg' },
+  ],
+};

@@ -4,9 +4,62 @@ import { useState } from 'react';
 import CEOInfo from './CEOInfo';
 import Icon from '../atoms/Icon';
 import Map from '../molecules/Map';
+import { IStores } from '@/app/types-hj/IStores';
 
-export default function StoreInfo() {
+interface Props extends IStores {
+  closingHours: string | undefined;
+}
+
+export default function StoreInfo({
+  storeStatus = 'CLOSING',
+  storeBusinessHours,
+  closingHours = '시간 정보 없음',
+}: Props) {
   const [show, setShow] = useState(false);
+
+  function dayName(dayOfWeek: string) {
+    let day = '';
+    switch (dayOfWeek) {
+      case 'MON':
+        day = '월';
+        break;
+      case 'TUE':
+        day = '화';
+        break;
+      case 'WED':
+        day = '수';
+        break;
+      case 'THU':
+        day = '목';
+        break;
+      case 'FRI':
+        day = '금';
+        break;
+      case 'SAT':
+        day = '토';
+        break;
+      case 'SUN':
+        day = '일';
+        break;
+    }
+    return day;
+  }
+
+  function currentStatue(storeStatus: string) {
+    let status = '';
+    switch (storeStatus) {
+      case 'OPENNING':
+        status = '영업 중';
+        break;
+      case 'CLOSING':
+        status = '휴업 중';
+        break;
+      case 'SHUT_DOWN':
+        status = '폐업 상태';
+        break;
+    }
+    return status;
+  }
 
   return (
     <section className="px-4 store-info">
@@ -23,10 +76,10 @@ export default function StoreInfo() {
               strokeLinejoin="round"
               pathD="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"
             />
-            <span>영업 중</span>
+            <span>{currentStatue(storeStatus)}</span>
           </p>
           <div className="flex items-center bussiness-hours">
-            <p>오후 10:00까지</p>
+            <p>{closingHours}까지</p>
             <Icon
               className="flex items-center w-[1.2rem] h-[1.2rem] ml-1 cursor-pointer"
               fill="none"
@@ -42,18 +95,25 @@ export default function StoreInfo() {
         </div>
         {show && (
           <ul className="hours-list ml-[1.69rem] mb-5 text-sm">
-            {BUSINESS_HOURS_LIST.map(({ day, openHours, closeHours }) => {
-              return (
-                <li key={day} className="mb-[0.4rem]">
-                  <span className="mr-[3.2rem]">{day}</span>
-                  <span>
-                    {openHours === ''
-                      ? '휴무일'
-                      : `${openHours} - ${closeHours}`}
-                  </span>
-                </li>
-              );
-            })}
+            {storeBusinessHours?.map(
+              ({
+                dayOfWeek = '정보 없음',
+                openingHours,
+                closingHours,
+                businessHourStatus,
+              }) => {
+                return (
+                  <li key={dayOfWeek} className="mb-[0.4rem]">
+                    <span className="mr-[3.2rem]">{dayName(dayOfWeek)}</span>
+                    <span>
+                      {businessHourStatus === 'CLOSED'
+                        ? '휴무일'
+                        : `${openingHours} - ${closingHours}`}
+                    </span>
+                  </li>
+                );
+              }
+            )}
           </ul>
         )}
         {STORE_INFO.map(({ infoId, iconTag, content }) => {
@@ -108,14 +168,4 @@ const STORE_INFO = [
       'M17.657 16.657L13.414 20.9a1.998 1.998 0 01-2.827 0l-4.244-4.243a8 8 0 1111.314 0z',
     content: '경기 가평군 가평읍 북한강변로 274-22',
   },
-];
-
-const BUSINESS_HOURS_LIST = [
-  { day: '월', openHours: '', closeHours: '' },
-  { day: '화', openHours: '11:00 am', closeHours: '09:00 pm' },
-  { day: '수', openHours: '11:00 am', closeHours: '09:00 pm' },
-  { day: '목', openHours: '11:00 am', closeHours: '09:00 pm' },
-  { day: '금', openHours: '11:00 am', closeHours: '09:00 pm' },
-  { day: '토', openHours: '11:00 am', closeHours: '09:00 pm' },
-  { day: '일', openHours: '', closeHours: '' },
 ];
