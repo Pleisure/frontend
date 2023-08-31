@@ -1,14 +1,19 @@
 import joinClassNames from '@/app/libs-dd/utils/joinClassNames';
 import { ButtonHTMLAttributes } from 'react';
 
-interface Props extends ButtonHTMLAttributes<HTMLButtonElement> {
+export interface ButtonProps extends ButtonHTMLAttributes<HTMLButtonElement> {
   variant?: 'primary' | 'secondary' | 'tertiary' | 'quaternary';
   size?: 'xsmall' | 'small' | 'medium' | 'large';
   isWidthFull?: boolean;
 }
 
-export default function Button({ variant = 'primary', size = 'small', isWidthFull = false, ...props }: Props) {
-  return <button className={joinClassNames('flex', TYPE_VARIANTS[variant], SIZE_VARIANTS[size])} {...props} />;
+export default function Button({ variant = 'primary', size = 'small', isWidthFull = false, ...props }: ButtonProps) {
+  return (
+    <button
+      className={joinClassNames(TYPE_VARIANTS[variant], SIZE_VARIANTS[size], isWidthFull ? 'w-full' : '')}
+      {...props}
+    />
+  );
 }
 
 const TYPE_VARIANTS = {
