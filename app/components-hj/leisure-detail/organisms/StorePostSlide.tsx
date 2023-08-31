@@ -125,9 +125,9 @@ export default function StorePostSlide() {
 }
 
 const TEST_SLIDE = [
-  { id: 1, imgUrl: '/images/leisure-detail/test-slide-img1.jpeg' },
-  { id: 2, imgUrl: '/images/leisure-detail/test-slide-img2.jpeg' },
-  { id: 3, imgUrl: '/images/leisure-detail/test-slide-img3.jpeg' },
-  { id: 4, imgUrl: '/images/leisure-detail/test-slide-img1.jpeg' },
-  { id: 5, imgUrl: '/images/leisure-detail/test-slide-img2.jpeg' },
+  { id: 1, imgUrl: '/images-hj/leisure-detail/test-slide-img1.jpeg' },
+  { id: 2, imgUrl: '/images-hj/leisure-detail/test-slide-img2.jpeg' },
+  { id: 3, imgUrl: '/images-hj/leisure-detail/test-slide-img3.jpeg' },
+  { id: 4, imgUrl: '/images-hj/leisure-detail/test-slide-img1.jpeg' },
+  { id: 5, imgUrl: '/images-hj/leisure-detail/test-slide-img2.jpeg' },
 ];

@@ -1,6 +1,6 @@
 'use client';
 
-import { IReviewList } from '@/app/types-hj/IStores';
+import { IReviewList } from '@/app/libs-hj/types/IStores';
 import Icon from '../atoms/Icon';
 import Slide from '../atoms/Slide';
 import { useState } from 'react';

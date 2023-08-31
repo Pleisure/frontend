@@ -9,7 +9,7 @@ export interface SlideProps {
 }
 
 export const photoSlideStyle = {
-  reviewWidth: 'w-32',
+  reviewWidth: 'w-28',
   visitorWidth: 'w-44',
   reviewGap: 'gap-2',
   visitorGap: 'gap-3',
