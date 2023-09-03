@@ -1,23 +1,11 @@
 'use client';
 
 import { GET } from '@/app/api/reviews/route';
-import axios from 'axios';
-import Link from 'next/link';
 import { useState } from 'react';
 
 export default function Dropdown() {
   const [ratingDropdown, setRatingDropdown] = useState('별점순으로 보기');
   const [show, setShow] = useState(false);
-
-  // postman mock data 를 만들어서 post를 시험 삼아 해보려했으나 실패..
-  // postman 어떻게 하는지 더 공부 필요..
-  // function axiosRatingQuery(rate: string) {
-  //   axios
-  //     .get(
-  //       `https://c6b7e9bc-4b87-4f71-a2bd-db8aade9d5f0.mock.pstmn.io/reviews?rating=${rate}`
-  //     )
-  //     .then((res) => console.log(res));
-  // }
 
   return (
     <div className="relative flex justify-end mt-3 mb-6">
@@ -41,13 +29,9 @@ export default function Dropdown() {
                 setShow(false);
               }}
             >
-              <Link
-                className="block py-1 text-center text-grayTxt"
-                href={{ query: { rate: rate === '전체' ? 'all' : rate[0] } }}
-                scroll={false}
-              >
+              <a className="block py-1 text-center text-grayTxt active:!text-grayTxt active:!bg-darkGrayBg">
                 {rate === 'all' ? '전체' : rate}
-              </Link>
+              </a>
             </li>
           );
         })}
