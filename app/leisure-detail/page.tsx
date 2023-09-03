@@ -10,11 +10,11 @@ import { IReviewSummerize, IStores } from '../types-hj/IStores';
 export default function LeisureDetail() {
   return (
     <div className="container relative max-w-md min-w-[360px] m-auto text-grayTxt mb-24">
-      <Header title={STORE_POST_DATA.storeTitleContent} />
+      <Header storeName={STORE_POST_DATA.storeName} />
       <StorePost
-        categoryName={STORE_POST_DATA.storeCategories.categoryName}
-        storeTitleContent={STORE_POST_DATA.storeTitleContent}
-        storeReviewsCount={STORE_POST_DATA.storeReviewCount}
+        categoryName={STORE_POST_DATA.storeCategories!.categoryName}
+        storeName={STORE_POST_DATA.storeName}
+        storeReviewCount={STORE_POST_DATA.storeReviewCount}
         totalRatingAverage={REVIEW_SUMMERIZE_DATA.totalRatingAverage}
       />
       <VisitorPost />
@@ -23,7 +23,11 @@ export default function LeisureDetail() {
       <Nav />
 
       {/* 레저 스토어 정보 */}
-      <StoreInfo />
+      <StoreInfo
+        storeStatus={STORE_POST_DATA.storeStatus}
+        storeBusinessHours={STORE_POST_DATA.storeBusinessHours}
+        closingHours={STORE_POST_DATA.storeBusinessHours![0].closingHours}
+      />
 
       {/* 리뷰 */}
       <Review />
@@ -50,21 +54,104 @@ const STORE_POST_DATA: IStores = {
     { id: 4, imgUrl: '/images/leisure-detail/test-slide-img1.jpeg' },
     { id: 5, imgUrl: '/images/leisure-detail/test-slide-img2.jpeg' },
   ],
-  storeName: '가평빠지월드',
+  storeName:
+    '포스트 제목입니다. 레저 제목입니다. 2줄까지만 보여주기로 합니다. 너무 길면 안됩니다. 레저의 제목이자 콘텐츠내용입니다. 가평빠지 좋아요. 더운 여름 핫해핫해',
   storeStatus: 'OPENNING',
   storeCategories: {
     categoryLevel: 2,
     categoryName: '수상레저',
   },
   storeAverageRating: 4.8,
-  storeReviewCount: 1024, // * ✅ 내가 임의로 추가. 나중에 추가되야함.
-  storeTitleContent:
-    '포스트 제목입니다. 레저 제목입니다. 2줄까지만 보여주기로 합니다. 너무 길면 안됩니다. 레저의 제목이자 콘텐츠내용입니다. 가평빠지 좋아요. 더운 여름 핫해핫해', // * ✅ 내가 임의로 추가. 나중에 추가되야함.
+  storeReviewCount: 1024, // * ✅ 내가 임의로 추가. 나중에 추가돼야함.
   storeBusinessHours: [
     // 오늘을 기준으로 일주일의 영업시간을 나타냅니다. 예를 들어, 오늘이 토요일이면 토, 일, 월, 화, 수, 목, 금 순으로 영업시간을 나열합니다.
     {
+      dayOfWeek: 'MON',
+      businessHourStatus: 'CLOSED',
+      // OPENED: 영업 하는 날 / CLOSED: 영업 쉬는 날
+      // CLOSED 일때는 openingHours, closingHours, breakTimeStart, breakTimeEnd는 모두 null로.
+      openingHours: '11:00', // (“HH:MM” 24시간 기준)
+      closingHours: '21:00', // (“HH:MM” 24시간 기준)
+      breakTimes: [
+        {
+          breakTimeStart: '11:00', // (“HH:MM” 24시간 기준)
+          breakTimeEnd: '14:00', // (“HH:MM” 24시간 기준)
+        },
+      ],
+    },
+    {
+      dayOfWeek: 'TUE',
+      businessHourStatus: 'OPENED',
+      // OPENED: 영업 하는 날 / CLOSED: 영업 쉬는 날
+      // CLOSED 일때는 openingHours, closingHours, breakTimeStart, breakTimeEnd는 모두 null로.
+      openingHours: '11:00', // (“HH:MM” 24시간 기준)
+      closingHours: '21:00', // (“HH:MM” 24시간 기준)
+      breakTimes: [
+        {
+          breakTimeStart: '11:00', // (“HH:MM” 24시간 기준)
+          breakTimeEnd: '14:00', // (“HH:MM” 24시간 기준)
+        },
+      ],
+    },
+    {
       dayOfWeek: 'WED',
       businessHourStatus: 'OPENED',
+      // OPENED: 영업 하는 날 / CLOSED: 영업 쉬는 날
+      // CLOSED 일때는 openingHours, closingHours, breakTimeStart, breakTimeEnd는 모두 null로.
+      openingHours: '11:00', // (“HH:MM” 24시간 기준)
+      closingHours: '21:00', // (“HH:MM” 24시간 기준)
+      breakTimes: [
+        {
+          breakTimeStart: '11:00', // (“HH:MM” 24시간 기준)
+          breakTimeEnd: '14:00', // (“HH:MM” 24시간 기준)
+        },
+      ],
+    },
+    {
+      dayOfWeek: 'THU',
+      businessHourStatus: 'OPENED',
+      // OPENED: 영업 하는 날 / CLOSED: 영업 쉬는 날
+      // CLOSED 일때는 openingHours, closingHours, breakTimeStart, breakTimeEnd는 모두 null로.
+      openingHours: '11:00', // (“HH:MM” 24시간 기준)
+      closingHours: '21:00', // (“HH:MM” 24시간 기준)
+      breakTimes: [
+        {
+          breakTimeStart: '11:00', // (“HH:MM” 24시간 기준)
+          breakTimeEnd: '14:00', // (“HH:MM” 24시간 기준)
+        },
+      ],
+    },
+    {
+      dayOfWeek: 'FRI',
+      businessHourStatus: 'OPENED',
+      // OPENED: 영업 하는 날 / CLOSED: 영업 쉬는 날
+      // CLOSED 일때는 openingHours, closingHours, breakTimeStart, breakTimeEnd는 모두 null로.
+      openingHours: '11:00', // (“HH:MM” 24시간 기준)
+      closingHours: '21:00', // (“HH:MM” 24시간 기준)
+      breakTimes: [
+        {
+          breakTimeStart: '11:00', // (“HH:MM” 24시간 기준)
+          breakTimeEnd: '14:00', // (“HH:MM” 24시간 기준)
+        },
+      ],
+    },
+    {
+      dayOfWeek: 'SAT',
+      businessHourStatus: 'OPENED',
+      // OPENED: 영업 하는 날 / CLOSED: 영업 쉬는 날
+      // CLOSED 일때는 openingHours, closingHours, breakTimeStart, breakTimeEnd는 모두 null로.
+      openingHours: '11:00', // (“HH:MM” 24시간 기준)
+      closingHours: '21:00', // (“HH:MM” 24시간 기준)
+      breakTimes: [
+        {
+          breakTimeStart: '11:00', // (“HH:MM” 24시간 기준)
+          breakTimeEnd: '14:00', // (“HH:MM” 24시간 기준)
+        },
+      ],
+    },
+    {
+      dayOfWeek: 'SUN',
+      businessHourStatus: 'CLOSED',
       // OPENED: 영업 하는 날 / CLOSED: 영업 쉬는 날
       // CLOSED 일때는 openingHours, closingHours, breakTimeStart, breakTimeEnd는 모두 null로.
       openingHours: '11:00', // (“HH:MM” 24시간 기준)
