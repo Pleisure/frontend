@@ -1,6 +1,5 @@
-import { SlideProps } from './Slide';
-
-interface Props extends SlideProps {
+interface Props {
+  imgUrl: string;
   divStyle: string;
   imgStyle: string;
 }

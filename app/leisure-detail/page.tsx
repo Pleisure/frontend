@@ -5,6 +5,7 @@ import Button from '../components-hj/leisure-detail/atoms/Button';
 import VisitorPost from '../components-hj/leisure-detail/organisms/VisitorPost';
 import StoreInfo from '../components-hj/leisure-detail/organisms/StoreInfo';
 import Review from '../components-hj/leisure-detail/organisms/Review';
+import { IReviewSummerize, IStores } from '../types-hj/IStores';
 
 export default function LeisureDetail() {
   return (
@@ -32,6 +33,7 @@ export default function LeisureDetail() {
         divStyle="fixed z-50 w-full max-w-md rounded-t-lg bottom-2 reservation-btn shadow-[0_-5px_5px_0_rgba(87,83,78,0.2)]"
         buttonStyle="w-full h-[3.5rem] text-white bg-cyanTxt btn btn-active border-1 border-cyanTxt hover:border-cyanTxt hover:bg-cyanTxt text-xl"
         content="예약하기"
+        linkHref="/reservation"
       />
       <div className="spacing fixed bottom-0 bg-white opacity-[80%] max-w-[27.75rem] min-w-[371px] h-10"></div>
     </div>
@@ -39,7 +41,7 @@ export default function LeisureDetail() {
 }
 
 // 임시 데이터
-const STORE_POST_DATA = {
+const STORE_POST_DATA: IStores = {
   storeId: '1',
   storeImageUrls: [
     { id: 1, imgUrl: '/images/leisure-detail/test-slide-img1.jpeg' },
@@ -55,9 +57,9 @@ const STORE_POST_DATA = {
     categoryName: '수상레저',
   },
   storeAverageRating: 4.8,
-  storeReviewCount: 1024, // * 내가 임의로 추가. 나중에 추가되야함.
+  storeReviewCount: 1024, // * ✅ 내가 임의로 추가. 나중에 추가되야함.
   storeTitleContent:
-    '포스트 제목입니다. 레저 제목입니다. 2줄까지만 보여주기로 합니다. 너무 길면 안됩니다. 레저의 제목이자 콘텐츠내용입니다. 가평빠지 좋아요. 더운 여름 핫해핫해', // * 내가 임의로 추가. 나중에 추가되야함.
+    '포스트 제목입니다. 레저 제목입니다. 2줄까지만 보여주기로 합니다. 너무 길면 안됩니다. 레저의 제목이자 콘텐츠내용입니다. 가평빠지 좋아요. 더운 여름 핫해핫해', // * ✅ 내가 임의로 추가. 나중에 추가되야함.
   storeBusinessHours: [
     // 오늘을 기준으로 일주일의 영업시간을 나타냅니다. 예를 들어, 오늘이 토요일이면 토, 일, 월, 화, 수, 목, 금 순으로 영업시간을 나열합니다.
     {
@@ -82,7 +84,7 @@ const STORE_POST_DATA = {
   storeReservationUrl: 'http://localhost:3000/leisure-detail#',
 };
 
-const REVIEW_SUMMERIZE_DATA = {
+const REVIEW_SUMMERIZE_DATA: IReviewSummerize = {
   totalRatingAverage: 4.8,
   numOfFiveStars: 120,
   numOfFourStars: 80,

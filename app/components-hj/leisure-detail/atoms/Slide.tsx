@@ -3,10 +3,9 @@
 import Photo from './Photo';
 
 export interface SlideProps {
-  imgUrl: string;
   width?: 'reviewWidth' | 'visitorWidth';
   gap?: 'reviewGap' | 'visitorGap';
-  data?: number[]; // 임시 배열
+  data: { id: number; imgUrl: string }[]; // 임시 배열
 }
 
 export const photoSlideStyle = {
@@ -16,18 +15,18 @@ export const photoSlideStyle = {
   visitorGap: 'gap-3',
 };
 
-export default function Slide({ imgUrl, width, data, gap }: SlideProps) {
+export default function Slide({ width, data, gap }: SlideProps) {
   return (
     <div
       className={`photoslide flex ${
         photoSlideStyle[gap!]
       } my-4 overflow-hidden`}
     >
-      {data?.map((i) => {
+      {data?.map((v, i) => {
         return (
           <Photo
             key={i}
-            imgUrl={imgUrl}
+            imgUrl={v.imgUrl}
             divStyle={`${photoSlideStyle[width!]} shrink-0`}
             imgStyle="rounded-lg"
           />
