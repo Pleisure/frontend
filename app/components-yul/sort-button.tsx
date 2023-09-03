@@ -6,11 +6,13 @@ import Container from '../components-dd/atoms/Container';
 import Dropdown from '../components-dd/atoms/Dropdown';
 import Txt from '../components-dd/atoms/Txt';
 
-const 최신순 = '최신순';
-const 추천순 = '추천순';
+const SORT_TYPES = {
+  최신순: { name: '최신순', query: 'recent' },
+  추천순: { name: '추천순', query: 'helpful' },
+};
 
 export default function SortButton() {
-  const [sort, setSort] = useState(최신순);
+  const [sort, setSort] = useState(SORT_TYPES.최신순.name);
   const [filterOpen, setFilterOpen] = useState(false);
   return (
     <Container className="w-full px-5 bg-transparent">
@@ -38,17 +40,17 @@ export default function SortButton() {
           <Button
             variant="quaternary"
             onClick={() => {
-              if (sort === 최신순) {
+              if (sort === SORT_TYPES.최신순.name) {
                 return;
               }
-              setSort(최신순);
+              setSort(SORT_TYPES.최신순.name);
               setFilterOpen((cur) => !cur);
             }}
           >
             <div className="flex justify-between w-36">
-              <span>{최신순}</span>
+              <span>{SORT_TYPES.최신순.name}</span>
               <span>
-                {sort === 최신순 ? (
+                {sort === SORT_TYPES.최신순.name ? (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6"
@@ -70,17 +72,17 @@ export default function SortButton() {
           <Button
             variant="quaternary"
             onClick={() => {
-              if (sort === 추천순) {
+              if (sort === SORT_TYPES.추천순.name) {
                 return;
               }
-              setSort(추천순);
+              setSort(SORT_TYPES.추천순.name);
               setFilterOpen((cur) => !cur);
             }}
           >
             <div className="flex justify-between">
-              <Txt>{추천순}</Txt>
+              <Txt>{SORT_TYPES.추천순.name}</Txt>
               <span>
-                {sort === 추천순 ? (
+                {sort === SORT_TYPES.추천순.name ? (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
                     className="h-6 w-6"

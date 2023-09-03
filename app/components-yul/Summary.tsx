@@ -9,8 +9,8 @@ export default function Summary({
 }) {
   return (
     <div>
-      {countsByRating.map(({ rating, percentage, count }) => (
-        <div>
+      {countsByRating.map(({ rating, percentage, count }, index) => (
+        <div key={index}>
           <span className="font-bold">{rating}점</span>
           <span>
             <Bar percentage={percentage} />

@@ -1,18 +1,4 @@
-export default function Stars(props: { rating: number }) {
-  const rating = Math.min(Math.max(1, props.rating), 5);
-  return (
-    <div className="flex items-center space-x-1">
-      {Array.from({ length: rating }).map((e) => (
-        <Star isFilled={true} />
-      ))}
-      {Array.from({ length: 5 - rating }).map(() => (
-        <Star isFilled={false} />
-      ))}
-    </div>
-  );
-}
-
-function Star({ isFilled }: { isFilled: boolean }) {
+export default function Star({ isFilled }: { isFilled: boolean }) {
   if (isFilled) {
     return (
       <svg

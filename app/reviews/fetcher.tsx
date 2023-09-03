@@ -76,7 +76,7 @@ export abstract class Fetcher {
         storeReviewId: '',
         storeReviewRating: 3,
         storeReviewContent:
-          '수상스키는 정말 신나는 경험이었습니다. 바람을 느끼며 수면 위를 미끄러지는 것은 매우 자유롭고, 운동 효과도 좋았습니다. 수상스키를 타고 싶으시다면, 한 번 도전해보시길 추천합니다.',
+          '수상스키는 정말 신나는 경험이었습니다.\n바람을 느끼며\n\t수면 위를 미끄러지는 것은\n\t\t매우 자유롭고, 운동 효과도 좋았습니다. 수상스키를 타고 싶으시다면, 한 번 도전해보시길 추천합니다.',
         storeReviewPhotoUrls: [
           'https://upload.wikimedia.org/wikipedia/commons/5/55/Water_skiing_0754.jpg',
           'https://www.kocis.go.kr/CONTENTS/editImage/20220511170717803_8GI2Z6Y1.jpg',
