@@ -1,26 +1,34 @@
 import Link from 'next/link';
 import Txt from '../atoms/Txt';
 import joinClassNames from '@/app/libs-dd/utils/joinClassNames';
+import Button, { ButtonProps } from '../atoms/Button';
+
+export type ROOT = 'home' | 'leisures' | 'community' | 'myPage';
 
 export interface FooterProps {
   type: 'none' | 'nav' | 'buttons';
-  root: 'home' | 'leisures' | 'community' | 'myPage';
+  root: ROOT;
+  children: React.ReactNode;
 }
 
-export default function Footer({ type, root }: FooterProps) {
+export default function Footer({ type, root, children }: FooterProps) {
   return (
-    <div
-      className={joinClassNames(
-        'w-full h-full bg-white border border-t shadow-md rounded-t-md',
-        type === 'none' ? 'hidden' : ''
-      )}
-    >
+    <div className={joinClassNames('w-full h-full shadow-md rounded-t-md', type === 'none' ? 'hidden' : '')}>
+      {type === 'nav' && <Nav root={root} />}
+      {type === 'buttons' && <ButtonFooter>{children}</ButtonFooter>}
+    </div>
+  );
+}
+
+function Nav(root: { root: ROOT }) {
+  return (
+    <div className='w-full h-full bg-white border border-t rounded-t-md'>
       <div className='grid w-full grid-cols-4 gap-1 px-5'>
         <Link
           href={'/'}
           className={joinClassNames(
             'flex flex-col items-center w-full h-full pt-2 pb-4',
-            root === 'home' ? 'text-cyan-400 font-bold' : ''
+            root.root === 'home' ? 'text-cyan-400 font-bold' : ''
           )}
         >
           <div className='h-12 p-2 aspect-square'>
@@ -48,7 +56,7 @@ export default function Footer({ type, root }: FooterProps) {
           href={'/leisures'}
           className={joinClassNames(
             'flex flex-col items-center w-full h-full pt-2 pb-4',
-            root === 'leisures' ? 'text-cyan-400 font-bold' : ''
+            root.root === 'leisures' ? 'text-cyan-400 font-bold' : ''
           )}
         >
           <div className='h-12 p-2 aspect-square'>
@@ -76,7 +84,7 @@ export default function Footer({ type, root }: FooterProps) {
           href={'/community'}
           className={joinClassNames(
             'flex flex-col items-center w-full h-full pt-2 pb-4',
-            root === 'community' ? 'text-cyan-400 font-bold' : ''
+            root.root === 'community' ? 'text-cyan-400 font-bold' : ''
           )}
         >
           <div className='h-12 p-2 aspect-square'>
@@ -104,7 +112,7 @@ export default function Footer({ type, root }: FooterProps) {
           href={'/my-page'}
           className={joinClassNames(
             'flex flex-col items-center w-full h-full pt-2 pb-4',
-            root === 'myPage' ? 'text-cyan-400 font-bold' : ''
+            root.root === 'myPage' ? 'text-cyan-400 font-bold' : ''
           )}
         >
           <div className='h-12 p-2 aspect-square'>
@@ -130,4 +138,11 @@ export default function Footer({ type, root }: FooterProps) {
       </div>
     </div>
   );
+}
+
+interface ButtonFooterProps {
+  children: React.ReactNode;
+}
+function ButtonFooter({ children }: ButtonFooterProps) {
+  return <div className='w-full h-full px-5 py-2 bg-gradient-to-t from-white from-80%'>{children}</div>;
 }
