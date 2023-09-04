@@ -1,22 +1,21 @@
 'use client';
 
-import Link from 'next/link';
+import { useState } from 'react';
 
-import Spacing from '../components-dd/atoms/Spacing';
 import Txt from '../components-dd/atoms/Txt';
+import Button from '../components-dd/atoms/Button';
+import Spacing from '../components-dd/atoms/Spacing';
+import Dropdown from '../components-dd/atoms/Dropdown';
+import Container from '../components-dd/atoms/Container';
 import Banner from '../components-dd/molecules/Banner';
 import Section from '../components-dd/molecules/Section';
 import StoreCard from '../components-dd/molecules/StoreCard';
+import LeisureCategory from '../components-dd/molecules/LeisureCategory';
 import PageLayout from '../components-dd/organisms/PageLayout';
-import Container from '../components-dd/atoms/Container';
-import { Button } from '../components-dd/atoms/Button';
 
+import { IBanner } from '../libs-dd/hooks/useBanners';
 import { ICategory } from '../libs-dd/hooks/useLeisureCategories';
 import { ILeisureStore } from '../libs-dd/hooks/useLeisureStores';
-import { IBanner } from '../libs-dd/hooks/useBanners';
-import Dropdown from '../components-dd/atoms/Dropdown';
-import { useState } from 'react';
-import LeisureCategory from '../components-dd/molecules/LeisureCategory';
 
 export default function Home() {
   const banners: IBanner[] = [
@@ -101,7 +100,7 @@ export default function Home() {
   const [filterOpen, setFilterOpen] = useState(false);
 
   return (
-    <PageLayout header={{ type: 'search' }} footer={{ type: 'nav', root: 'leisures' }}>
+    <PageLayout header={{ type: 'main' }} footer={{ type: 'nav', root: 'leisures' }}>
       <Section>
         <Banner banners={banners} />
         <Spacing size={40} />
@@ -113,9 +112,10 @@ export default function Home() {
         <Spacing size={40} />
       </Section>
 
+      <Spacing size={'small'} />
+
       <Section>
         <Spacing size={'large'} />
-
         <Container className='w-full px-5 bg-transparent'>
           <Button variant='tertiary' onClick={() => setFilterOpen(!filterOpen)}>
             <Container className='flex justify-between w-36'>
