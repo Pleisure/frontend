@@ -1,7 +1,7 @@
 'use client';
 
 import Link from 'next/link';
-import { useState } from 'react';
+import { ButtonHTMLAttributes, SVGProps, useState } from 'react';
 
 import Txt from '../atoms/Txt';
 import SearchBar from '../atoms/SearchBar';
@@ -11,17 +11,22 @@ import Modal from '../molecules/Modal';
 import formatDate from '@/app/libs-dd/utils/formatDate';
 import Spacing from '../atoms/Spacing';
 import joinClassNames from '@/app/libs-dd/utils/joinClassNames';
+import IconButton, { IconButtonProps } from '../atoms/IconButton';
 
 export interface HeaderProps {
   hasBorder?: boolean;
   type: 'main' | 'search' | 'detail';
+  title?: string;
+  left?: IconButtonProps[];
+  right?: IconButtonProps[];
 }
 
-export default function Header({ hasBorder, type }: HeaderProps) {
+export default function Header({ hasBorder = false, type, title = '', left = [], right = [] }: HeaderProps) {
   return (
     <div className={joinClassNames('w-full h-full bg-white pt-[44px]', hasBorder ? 'border-b' : '')}>
       {type === 'main' ? <MainHeader /> : null}
       {type === 'search' ? <SearchHeader /> : null}
+      {type === 'detail' ? <DetailHeader title={title} left={left} right={right} hasborder={hasBorder} /> : null}
     </div>
   );
 }
@@ -178,3 +183,32 @@ const RecentSearch = ({ date, word }: { date: Date; word: string }) => {
     </div>
   );
 };
+
+interface DetailHeaderProps {
+  hasborder: boolean;
+  title: string;
+  left: IconButtonProps[];
+  right: IconButtonProps[];
+}
+
+function DetailHeader({ hasborder, title, left, right }: DetailHeaderProps) {
+  return (
+    <Container className={joinClassNames('flex w-full px-2 py-[5px]')}>
+      <Container className='flex justify-start w-20 space-x-2'>
+        {left.map((item, i) => (
+          <IconButton key={`LeftIconButtons${i}`} svg={item.svg} />
+        ))}
+      </Container>
+      <Container className='flex justify-center w-full'>
+        <Txt typography='title3' isBold={true}>
+          {title}
+        </Txt>
+      </Container>
+      <Container className='flex justify-end w-20 space-x-2'>
+        {right.map((item, i) => (
+          <IconButton key={`rightIconButtons${i}`} svg={item.svg} />
+        ))}
+      </Container>
+    </Container>
+  );
+}
