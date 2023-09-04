@@ -161,12 +161,14 @@ const SearchModalContent = () => {
 
 const RecentSearch = ({ date, word }: { date: Date; word: string }) => {
   return (
-    <div className='flex justify-between w-full py-2'>
-      <div className='flex space-x-2 align-text-bottom'>
+    <div className='flex items-center justify-between w-full py-2'>
+      <div className='flex items-center space-x-2'>
         <Txt>{word}</Txt>
-        <Txt typography='caption'>{formatDate(date)}</Txt>
+        <Txt typography='caption' color='disable'>
+          {formatDate(date)}
+        </Txt>
       </div>
-      <div className='text-gray-500'>
+      <div className='items-center text-gray-500'>
         <svg xmlns='http://www.w3.org/2000/svg' className='w-4 h-4' viewBox='0 0 20 20' fill='currentColor'>
           <path
             fillRule='evenodd'
