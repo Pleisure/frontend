@@ -1,6 +1,6 @@
-import joinClassNames from '@/app/libs-dd/utils/joinClassNames';
 import Link from 'next/link';
 import Txt from '../atoms/Txt';
+import joinClassNames from '@/app/libs-dd/utils/joinClassNames';
 
 export interface FooterProps {
   type: 'none' | 'nav' | 'buttons';
@@ -9,8 +9,13 @@ export interface FooterProps {
 
 export default function Footer({ type, root }: FooterProps) {
   return (
-    <footer className='w-full h-full bg-white border border-t shadow-md rounded-t-md'>
-      <nav className='grid w-full grid-cols-4 gap-1 px-5'>
+    <div
+      className={joinClassNames(
+        'w-full h-full bg-white border border-t shadow-md rounded-t-md',
+        type === 'none' ? 'hidden' : ''
+      )}
+    >
+      <div className='grid w-full grid-cols-4 gap-1 px-5'>
         <Link
           href={'/'}
           className={joinClassNames(
@@ -122,7 +127,7 @@ export default function Footer({ type, root }: FooterProps) {
             <Txt typography='caption'>My Page</Txt>
           </div>
         </Link>
-      </nav>
-    </footer>
+      </div>
+    </div>
   );
 }
