@@ -10,6 +10,8 @@ interface Iicon {
   strokeLinejoin?: 'round' | 'inherit' | 'miter' | 'bevel' | undefined;
   strokeLinecap2?: 'round' | 'butt' | 'square' | 'inherit' | undefined;
   strokeLinejoin2?: 'round' | 'inherit' | 'miter' | 'bevel' | undefined;
+  fillRule?: 'inherit' | 'evenodd' | 'nonzero' | undefined;
+  clipRule?: string | number | undefined;
   pathD: string;
   isPathDtwo?: boolean;
   pathD2?: string;
@@ -26,6 +28,8 @@ export default function Icon({
   strokeLinejoin,
   strokeLinecap2,
   strokeLinejoin2,
+  fillRule,
+  clipRule,
   pathD,
   isPathDtwo,
   pathD2,
@@ -44,7 +48,9 @@ export default function Icon({
       <path
         strokeLinecap={strokeLinecap}
         strokeLinejoin={strokeLinejoin}
+        fillRule={fillRule}
         d={pathD}
+        clipRule={clipRule}
       />
       {isPathDtwo && (
         <path

@@ -3,12 +3,13 @@
 import { IReviewList } from '@/app/libs-hj/types/IStores';
 import Icon from '../atoms/Icon';
 import Slide from '../atoms/Slide';
-import { useState } from 'react';
+import { Dispatch, SetStateAction, useState } from 'react';
 import RelativeTime from '@/app/libs-hj/utils/RelativeTime';
 
 interface ArticleProps extends IReviewList {
   dataIdx: number;
   dataLength: number;
+  setShowModal: Dispatch<SetStateAction<boolean>>;
 }
 
 export default function ReviewArticle({
@@ -22,6 +23,7 @@ export default function ReviewArticle({
   storeReviewContent,
   storeReviewRating,
   storeReviewPhotoUrls,
+  setShowModal,
 }: ArticleProps) {
   const [moreBtn, setMoreBtn] = useState(false);
   const reviewLengthMinimum = 70;
@@ -32,7 +34,7 @@ export default function ReviewArticle({
   }
 
   return (
-    <article className={`pb-6 pt-6 review-article`}>
+    <article className="pt-6 pb-6 review-article">
       {/* review profile */}
       <div className="flex justify-between review-profile">
         <div className="flex">
@@ -81,7 +83,12 @@ export default function ReviewArticle({
             </div>
           </div>
         </div>
-        <p className="text-sm cursor-pointer text-lightGrayTxt">신고</p>
+        <button
+          className="text-sm cursor-pointer text-lightGrayTxt"
+          onClick={() => setShowModal(true)}
+        >
+          신고
+        </button>
       </div>
 
       {/* review photo slide  */}

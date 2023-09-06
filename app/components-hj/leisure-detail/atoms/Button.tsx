@@ -16,7 +16,7 @@ export default function Button({
   divStyle,
   buttonStyle,
   content,
-  linkHref = '/',
+  linkHref = '#',
   ...props
 }: Props) {
   return (
