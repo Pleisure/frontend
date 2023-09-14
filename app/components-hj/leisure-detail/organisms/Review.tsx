@@ -3,12 +3,19 @@ import Rating from '../molecules/Rating';
 import ReviewArticle from './ReviewArticle';
 import Dropdown from '@/app/components-hj/leisure-detail/molecules/Dropdown';
 import { REVIEW_ARTICLE_DATA } from '@/app/libs-hj/data/REVIEW_ARTICLE_DATA';
+import RatingButton from './RatingButton';
+import SortButton from './SortButton';
 
 export default function Review() {
   return (
-    <section className="px-5 review">
+    <section className="review">
       <Rating />
-      <Dropdown />
+      <hr />
+      {/* <Dropdown /> */}
+      <div className="flex px-5 my-3 dropdown">
+        <SortButton />
+        <RatingButton />
+      </div>
       {REVIEW_ARTICLE_DATA.map((data, i, currentArr) => {
         return (
           <ReviewArticle

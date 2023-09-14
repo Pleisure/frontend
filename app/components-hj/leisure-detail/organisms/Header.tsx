@@ -40,7 +40,7 @@ export default function Header({ storeName }: HeaderProps) {
       <style jsx>{`
         .title-txt {
           display: -webkit-box;
-          -webkit-line-clamp: 2;
+          -webkit-line-clamp: 1;
           -webkit-box-orient: vertical;
         }
       `}</style>

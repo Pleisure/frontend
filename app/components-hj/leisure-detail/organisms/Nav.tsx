@@ -1,6 +1,7 @@
 'use client';
 
 import { STORE_POST_DATA } from '@/app/libs-hj/data/STORE_POST_DATA';
+import ReviewCountLimit from '@/app/libs-hj/utils/ReviewCountLimit';
 
 export default function Nav() {
   return (
@@ -10,9 +11,11 @@ export default function Nav() {
       </div>
       <div className="w-1/2 pb-3 pt-6 border-b-[1px] cursor-pointer">
         리뷰 (
-        {STORE_POST_DATA.storeReviewCount! > 999
-          ? '999+'
-          : STORE_POST_DATA.storeReviewCount}
+        {ReviewCountLimit(
+          STORE_POST_DATA.storeReviewCount
+            ? STORE_POST_DATA.storeReviewCount
+            : 0
+        )}
         )
       </div>
       <style jsx>
