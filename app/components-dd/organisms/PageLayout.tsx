@@ -18,7 +18,13 @@ export default function PageLayout({ header, footer, children }: Props) {
     <div className='w-screen h-screen bg-slate-200'>
       <div className={joinClassNames('h-screen m-auto overflow-hidden bg-white', MAX_WIDTH)}>
         <div className={joinClassNames('fixed top-0 z-50 w-full h-[84px]', MAX_WIDTH)}>
-          <Header type={header.type} />
+          <Header
+            type={header.type}
+            title={header.title}
+            left={header.left}
+            right={header.right}
+            hasBorder={header.hasBorder}
+          />
         </div>
 
         <div className={joinClassNames('z-10 w-full bg-slate-300 h-full')}>
@@ -26,7 +32,7 @@ export default function PageLayout({ header, footer, children }: Props) {
           <div
             className={joinClassNames(
               'w-full overflow-y-scroll scrollbar-hide',
-              footer.type === 'none' ? BODY_WITHOUT_FOOTER : BODY_WITH_FOOTER
+              footer.type === 'none' || footer.type === 'buttons' ? BODY_WITHOUT_FOOTER : BODY_WITH_FOOTER
             )}
           >
             {children}
@@ -35,7 +41,9 @@ export default function PageLayout({ header, footer, children }: Props) {
         </div>
 
         <div className={joinClassNames('fixed bottom-0 z-50 w-full h-[92px]', MAX_WIDTH)}>
-          <Footer type={footer.type} root={footer.root} />
+          <Footer type={footer.type} root={footer.root}>
+            {footer.children}
+          </Footer>
         </div>
       </div>
     </div>

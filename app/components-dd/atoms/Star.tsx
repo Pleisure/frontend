@@ -2,13 +2,14 @@ import joinClassNames from '@/app/libs-dd/utils/joinClassNames';
 
 interface Props {
   size: 'small' | 'medium' | 'large';
+  color?: 'primary' | 'secondary';
 }
 
-export default function Star({ size }: Props) {
+export default function Star({ size, color = 'primary' }: Props) {
   return (
     <svg
       xmlns='http://www.w3.org/2000/svg'
-      className={joinClassNames('aspect-square text-cyan-400', SIZE_VARIANTS[size])}
+      className={joinClassNames(SIZE_VARIANTS[size], color === 'primary' ? 'text-cyan-400' : 'text-gray-300')}
       viewBox='0 0 20 20'
       fill='currentColor'
     >
@@ -20,5 +21,5 @@ export default function Star({ size }: Props) {
 const SIZE_VARIANTS = {
   small: 'h-4',
   medium: 'h-10',
-  large: 'h-20',
+  large: 'h-16',
 };
