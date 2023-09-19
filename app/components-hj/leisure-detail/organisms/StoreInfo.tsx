@@ -4,7 +4,7 @@ import { useState } from 'react';
 import CEOInfo from './CEOInfo';
 import Icon from '../atoms/Icon';
 import Map from '../molecules/Map';
-import { IStores } from '@/app/types-hj/IStores';
+import { IStores } from '@/app/libs-hj/types/IStores';
 
 interface Props extends IStores {
   closingHours: string | undefined;
@@ -62,7 +62,7 @@ export default function StoreInfo({
   }
 
   return (
-    <section className="px-4 store-info">
+    <section className="px-5 store-info">
       <div className="detail-info">
         <div className="flex gap-5 mb-3 store-business-hours">
           <p className="flex items-center font-bold">

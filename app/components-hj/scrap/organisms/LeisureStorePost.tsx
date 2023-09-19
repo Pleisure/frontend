@@ -1,3 +1,4 @@
+import ReviewCountLimit from '@/app/libs-hj/utils/ReviewCountLimit';
 import IconSvg from '../atoms/IconSvg';
 
 interface Props {
@@ -33,7 +34,7 @@ export default function LeisureStorePost({
             <span className="ml-1 mr-3 font-bold">{rating}</span>
           </div>
           <div className="review">
-            <p>리뷰 {review >= 1000 ? '999+' : review}</p>
+            <p>리뷰 {ReviewCountLimit(review)}</p>
           </div>
         </div>
       </div>

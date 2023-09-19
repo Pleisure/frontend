@@ -2,6 +2,7 @@
 
 import StorePostSlide from './StorePostSlide';
 import Icon from '../atoms/Icon';
+import ReviewCountLimit from '@/app/libs-hj/utils/ReviewCountLimit';
 
 interface Props {
   categoryName: string | undefined;
@@ -14,12 +15,12 @@ export default function StorePost({
   categoryName,
   storeName,
   totalRatingAverage,
-  storeReviewCount,
+  storeReviewCount = 0,
 }: Props) {
   return (
     <section className="mb-10 overflow-hidden store-post">
       <StorePostSlide />
-      <div className="px-4 store-title">
+      <div className="px-5 store-title">
         <p className="mt-4 text-sm text-lightGrayTxt">{categoryName}</p>
         <div className="my-2 overflow-hidden text-lg break-all title-txt text-ellipsis">
           {storeName}
@@ -37,7 +38,7 @@ export default function StorePost({
             <span className="ml-1 mr-3 font-bold">{totalRatingAverage}</span>
           </div>
           <div className="reviewCnt">
-            <p>리뷰 {storeReviewCount > 1000 ? '999+' : storeReviewCount}</p>
+            <p>리뷰 {ReviewCountLimit(storeReviewCount)}</p>
           </div>
         </div>
       </div>

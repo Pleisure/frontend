@@ -9,7 +9,7 @@ type HeaderProps = {
 
 export default function Header({ storeName }: HeaderProps) {
   return (
-    <header className="flex items-center justify-between px-4 mt-6 mb-3 previous">
+    <header className="flex items-center justify-between px-5 pt-6 mb-4 previous">
       <div className="flex items-center cursor-pointer w-9 h-9">
         <Icon
           className="w-6 h-6"
@@ -40,7 +40,7 @@ export default function Header({ storeName }: HeaderProps) {
       <style jsx>{`
         .title-txt {
           display: -webkit-box;
-          -webkit-line-clamp: 2;
+          -webkit-line-clamp: 1;
           -webkit-box-orient: vertical;
         }
       `}</style>

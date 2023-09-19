@@ -1,8 +1,9 @@
+import ReviewCountLimit from '@/app/libs-hj/utils/ReviewCountLimit';
 import Icon from '../atoms/Icon';
 
 export default function Rating() {
   return (
-    <div className="flex items-center justify-around mt-20 mb-8 mx-2 pb-10 rating border-b-[1px]">
+    <div className="flex items-center justify-around px-5 pb-10 mx-2 mt-20 rating">
       <div className="flex items-center w-[90%]">
         <Icon
           className="w-16 h-16 text-cyanTxt"
@@ -19,13 +20,13 @@ export default function Rating() {
               key={rating}
               className="flex items-center gap-[0.45rem] text-lightGrayTxt"
             >
-              <span>{rating}</span>
+              <span className="w-[20px]">{rating}</span>
               <progress
                 className="block w-[60%] my-[0.45rem] progress progress-info bg-grayBg"
                 value={value}
                 max="100"
               ></progress>
-              <span>{count >= 1000 ? '999+' : count}</span>
+              <span>{ReviewCountLimit(count)}</span>
             </li>
           );
         })}
