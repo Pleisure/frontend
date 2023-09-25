@@ -62,7 +62,7 @@ export default function StoreInfo({
   }
 
   return (
-    <section className="px-5 store-info">
+    <section className="px-5 pt-8 store-info">
       <div className="detail-info">
         <div className="flex gap-5 mb-3 store-business-hours">
           <p className="flex items-center font-bold">

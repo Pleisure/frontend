@@ -13,7 +13,7 @@ export default function Review() {
 
   return (
     <>
-      <section className="relative px-5 review">
+      <section id="review" className="relative px-5 pt-20">
         <Rating />
         <Dropdown />
         {REVIEW_ARTICLE_DATA.map((data, i, currentArr) => {
