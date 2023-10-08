@@ -3,7 +3,7 @@ import Slide from '../atoms/Slide';
 
 export default function VisitorPost() {
   return (
-    <section className="px-4 mb-10 visitor-post">
+    <section className="px-5 mb-10 visitor-post">
       <div className="visitor-post-title">
         <p className="text-lg font-bold">방문자 포스트</p>
       </div>
@@ -27,9 +27,9 @@ export default function VisitorPost() {
 const VISITOR_POST_DATA = {
   postId: '1',
   postPhotoUrl: [
-    { id: 1, imgUrl: '/images/leisure-detail/test-visitor-img.jpeg' },
-    { id: 2, imgUrl: '/images/leisure-detail/test-visitor-img.jpeg' },
-    { id: 3, imgUrl: '/images/leisure-detail/test-visitor-img.jpeg' },
-    { id: 4, imgUrl: '/images/leisure-detail/test-visitor-img.jpeg' },
+    { id: 1, imgUrl: '/images-hj/leisure-detail/test-visitor-img.jpeg' },
+    { id: 2, imgUrl: '/images-hj/leisure-detail/test-visitor-img.jpeg' },
+    { id: 3, imgUrl: '/images-hj/leisure-detail/test-visitor-img.jpeg' },
+    { id: 4, imgUrl: '/images-hj/leisure-detail/test-visitor-img.jpeg' },
   ],
 };
