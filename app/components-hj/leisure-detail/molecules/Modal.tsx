@@ -21,7 +21,7 @@ function reportAxios() {
 }
 
 export default function Modal({ showModal, setShowModal }: ModalProps) {
-  const [textArea, setTextArea] = useState<boolean>(false);
+  const [showTextArea, setShowTextArea] = useState<boolean>(false);
 
   return (
     <div className="relative max-w-md w-[70%] z-[101]">
@@ -32,11 +32,11 @@ export default function Modal({ showModal, setShowModal }: ModalProps) {
             className="absolute right-4 top-[1.15rem] XBtn opacity-[30%]"
             onClick={() => {
               setShowModal(false);
-              setTextArea(false);
+              setShowTextArea(false);
             }}
           >
             <Icon
-              className="w-5 h-5 cursor-pointer"
+              className="w-5 h-5 cursor-pointer closeBtn"
               viewBox="0 0 20 20"
               fill="currentColor"
               fillRule="evenodd"
@@ -52,24 +52,24 @@ export default function Modal({ showModal, setShowModal }: ModalProps) {
                     type="radio"
                     name="radio"
                     id={name}
-                    className="w-5 h-5"
+                    className="w-5 h-5 radioBtn"
                     onChange={(e) => {
                       if (name === 'radio-6' && e.target.checked) {
-                        setTextArea(true);
+                        setShowTextArea(true);
                       } else {
-                        setTextArea(false);
+                        setShowTextArea(false);
                       }
                     }}
                   />
-                  <label htmlFor={name} className="ml-2">
+                  <label htmlFor={name} className="ml-2 cursor-pointer">
                     {content}
                   </label>
                 </li>
               );
             })}
-            {textArea ? (
+            {showTextArea ? (
               <textarea
-                className={`etcTxtArea w-full h-32 border-[1.5px] rounded-md border-grayBg resize-none p-3 text-sm`}
+                className={`etcTxtArea w-full h-32 border-[1.5px] rounded-md border-grayBg resize-none p-3 text-sm focus:outline-cyanTxt`}
               ></textarea>
             ) : (
               ''
@@ -77,7 +77,7 @@ export default function Modal({ showModal, setShowModal }: ModalProps) {
           </ul>
           <Button
             divStyle={`w-full rounded-md bg-[#D83C3C] text-center cursor-pointer ${
-              textArea ? 'mt-1' : 'mt-5'
+              showTextArea ? 'mt-1' : 'mt-5'
             }`}
             buttonStyle="text-white py-3"
             content="신고하기"
@@ -88,6 +88,27 @@ export default function Modal({ showModal, setShowModal }: ModalProps) {
       ) : (
         ''
       )}
+      <style jsx>
+        {`
+          input[type='radio'] {
+            -webkit-appearance: none;
+            -moz-appearance: none;
+            appearance: none;
+            width: 18px;
+            height: 18px;
+            border: 2px solid #ccc;
+            border-radius: 50%;
+            outline: none;
+            cursor: pointer;
+          }
+
+          input[type='radio']:checked {
+            box-shadow: 0 0 0 1.6px #22d3ee;
+            background-color: #22d3ee;
+            border: 3px solid white;
+          }
+        `}
+      </style>
     </div>
   );
 }
