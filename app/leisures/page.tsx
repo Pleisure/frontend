@@ -22,14 +22,45 @@ export default function Home() {
     {
       bannerLocation: 'main0',
       bannerId: 0,
-      bannerImageUrl: '',
+      bannerImageUrl:
+        'http://webplanning.kr/wp-content/uploads/2022/07/%ED%9A%8C%EC%9B%90%ED%98%9C%ED%83%9D-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EB%B0%B0%EB%84%88_%EC%88%98%EC%A0%95-300x175.jpg',
       bannerLink: '',
       bannerOrder: 0,
     },
     {
       bannerLocation: 'main0',
       bannerId: 1,
-      bannerImageUrl: '',
+      bannerImageUrl: 'https://file.mk.co.kr/meet/neds/2019/03/image_readtop_2019_187662_15537375253687382.jpg',
+      bannerLink: '',
+      bannerOrder: 1,
+    },
+    {
+      bannerLocation: 'main0',
+      bannerId: 2,
+      bannerImageUrl:
+        'http://webplanning.kr/wp-content/uploads/2022/07/%ED%9A%8C%EC%9B%90%ED%98%9C%ED%83%9D-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EB%B0%B0%EB%84%88_%EC%88%98%EC%A0%95-300x175.jpg',
+      bannerLink: '',
+      bannerOrder: 0,
+    },
+    {
+      bannerLocation: 'main0',
+      bannerId: 3,
+      bannerImageUrl: 'https://file.mk.co.kr/meet/neds/2019/03/image_readtop_2019_187662_15537375253687382.jpg',
+      bannerLink: '',
+      bannerOrder: 1,
+    },
+    {
+      bannerLocation: 'main0',
+      bannerId: 4,
+      bannerImageUrl:
+        'http://webplanning.kr/wp-content/uploads/2022/07/%ED%9A%8C%EC%9B%90%ED%98%9C%ED%83%9D-%EC%9D%B4%EB%B2%A4%ED%8A%B8-%EB%B0%B0%EB%84%88_%EC%88%98%EC%A0%95-300x175.jpg',
+      bannerLink: '',
+      bannerOrder: 0,
+    },
+    {
+      bannerLocation: 'main0',
+      bannerId: 5,
+      bannerImageUrl: 'https://file.mk.co.kr/meet/neds/2019/03/image_readtop_2019_187662_15537375253687382.jpg',
       bannerLink: '',
       bannerOrder: 1,
     },
