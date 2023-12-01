@@ -21,6 +21,8 @@ export default function LeisureDetail() {
       {VISITOR_POST_DATA.postPhotoUrl.length === 0 || <VisitorPost />}
 
       {/* 레저, 리뷰 탭 */}
+      {/* div는 레저 정보 클릭 시에 스크롤 이동할 타겟요소 */}
+      <div id="store-info"></div>
       <Nav />
 
       {/* 레저 스토어 정보 */}
