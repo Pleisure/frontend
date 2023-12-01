@@ -1,3 +1,4 @@
+import { VISITOR_POST_DATA } from '@/app/libs-hj/data/VISITOR_POST_DATA';
 import Button from '../atoms/Button';
 import Slide from '../atoms/Slide';
 
@@ -8,7 +9,6 @@ export default function VisitorPost() {
         <p className="text-lg font-bold">방문자 포스트</p>
       </div>
 
-      {/* visitor photo slide */}
       <Slide
         width="visitorWidth"
         gap="visitorGap"
@@ -23,13 +23,3 @@ export default function VisitorPost() {
     </section>
   );
 }
-
-const VISITOR_POST_DATA = {
-  postId: '1',
-  postPhotoUrl: [
-    { id: 1, imgUrl: '/images-hj/leisure-detail/test-visitor-img.jpeg' },
-    { id: 2, imgUrl: '/images-hj/leisure-detail/test-visitor-img.jpeg' },
-    { id: 3, imgUrl: '/images-hj/leisure-detail/test-visitor-img.jpeg' },
-    { id: 4, imgUrl: '/images-hj/leisure-detail/test-visitor-img.jpeg' },
-  ],
-};
