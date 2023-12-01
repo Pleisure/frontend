@@ -13,6 +13,8 @@ export default function Review({
   storeReviewContent,
   storeReviewPhotoUrls,
   createdAt,
+  arrayLength,
+  index,
 }: {
   reviewWriterNickname: string;
   reviewWriterProfilePictureUrl: string;
@@ -22,54 +24,66 @@ export default function Review({
   storeReviewContent: string;
   storeReviewPhotoUrls: string[];
   createdAt: string;
+  arrayLength: number;
+  index: number;
 }) {
+  function ageGroup(age: number) {
+    const stringAge = age.toString();
+    if (stringAge.length > 1) return `${stringAge[0]}0대`;
+    else if (stringAge.length === 1) return `10대`;
+  }
+
   return (
-    <div>
-      <div className="flex flex-row justify-between">
-        <span className="flex flex-row">
-          <span>
-            <ProfilePicture url={reviewWriterProfilePictureUrl} />
-          </span>
-          <span>
-            <Nickname value={reviewWriterNickname} />
-            <div className="flex flex-row">
-              <span>
-                <RatingStars rating={storeReviewRating} />
-              </span>
-              <span className="text-gray-500">
+    <>
+      <div className="px-5 my-[1.85rem] review">
+        <div className="flex flex-row justify-between">
+          <div className="flex items-center profile-wrapper">
+            <div className="w-10 h-10 mr-3 profile-img">
+              <ProfilePicture url={reviewWriterProfilePictureUrl} />
+            </div>
+            <div className="profile-info">
+              <Nickname value={reviewWriterNickname} />
+              <div className="flex items-center gap-2 text-sm">
+                <span>
+                  <RatingStars rating={storeReviewRating} />
+                </span>
                 <span>
                   <RelativeTime dateString={createdAt} />
                 </span>
-                <span className="mx-1">·</span>
                 <span>
-                  {reviewWriterAge}세/
+                  {ageGroup(reviewWriterAge)}/
                   <Gender value={reviewWriterGender} />
                 </span>
-              </span>
+              </div>
             </div>
-          </span>
-        </span>
-        <span className=" text-gray-500">
-          <button>신고</button>
-        </span>
-      </div>
-      <div>
-        <span>
-          <img
-            src={storeReviewPhotoUrls[0]}
-            style={{ width: 100, height: 100 }}
-          />
-        </span>
-        <span>
+          </div>
+          <div className="text-sm text-gray-500">
+            <button>신고</button>
+          </div>
+        </div>
+        <div className="flex gap-2 overflow-hidden review-content">
+          {storeReviewPhotoUrls.map((_, i) => {
+            return (
+              <div key={i} className="my-5 w-28 h-28 shrink-0">
+                <img
+                  src={storeReviewPhotoUrls[i]}
+                  className="w-full h-full rounded-lg"
+                />
+              </div>
+            );
+          })}
+        </div>
+        <div>
           <ReviewContent content={storeReviewContent} />
-        </span>
+        </div>
       </div>
-    </div>
+      {index === arrayLength - 1 || <hr />}
+    </>
   );
 }
 
 function ProfilePicture({ url }: { url: string }) {
-  return <img src={url} style={{ width: 45, height: 45 }} />;
+  return <img src={url} style={{ width: '100%', borderRadius: '50%' }} />;
 }
 
 function Nickname({ value }: { value: string }) {

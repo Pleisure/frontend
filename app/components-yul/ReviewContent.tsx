@@ -15,8 +15,9 @@ export default function ReviewContent({
   const croppedContent = originalContent.substring(0, MAX_LENGTH);
   return (
     <CollapsibleContentText
-      originalContent={originalContent}
-      croppedContent={croppedContent}
+      content={originalContent}
+      // originalContent={originalContent}
+      // croppedContent={croppedContent}
     />
   );
 }

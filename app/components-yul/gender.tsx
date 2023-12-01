@@ -1,9 +1,9 @@
 export default function Gender({ value }: { value: string }) {
   switch (value) {
     case 'MALE':
-      return <>남성</>;
+      return <>남</>;
     case 'FEMALE':
-      return <>여성</>;
+      return <>여</>;
     default:
       return <>비공개</>;
   }

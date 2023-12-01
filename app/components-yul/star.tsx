@@ -1,8 +1,16 @@
-export default function Star({ isFilled }: { isFilled: boolean }) {
+export default function Star({
+  isFilled,
+  fillStarClassName = 'w-4 h-4 text-cyan-400',
+  emptyStarClassName = 'w-4 h-4 text-gray-300 dark:text-gray-500',
+}: {
+  isFilled: boolean;
+  fillStarClassName?: string;
+  emptyStarClassName?: string;
+}) {
   if (isFilled) {
     return (
       <svg
-        className="w-4 h-4 text-cyan-400"
+        className={fillStarClassName}
         aria-hidden="true"
         xmlns="http://www.w3.org/2000/svg"
         fill="currentColor"
@@ -15,7 +23,7 @@ export default function Star({ isFilled }: { isFilled: boolean }) {
 
   return (
     <svg
-      className="w-4 h-4 text-gray-300 dark:text-gray-500"
+      className={emptyStarClassName}
       aria-hidden="true"
       xmlns="http://www.w3.org/2000/svg"
       fill="currentColor"

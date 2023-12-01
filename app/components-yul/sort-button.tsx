@@ -1,7 +1,7 @@
 'use client';
 
 import { useState } from 'react';
-import { Button } from '../components-dd/atoms/Button';
+import Button from '../components-dd/atoms/Button';
 import Container from '../components-dd/atoms/Container';
 import Dropdown from '../components-dd/atoms/Dropdown';
 import Txt from '../components-dd/atoms/Txt';
@@ -14,14 +14,19 @@ const SORT_TYPES = {
 export default function SortButton() {
   const [sort, setSort] = useState(SORT_TYPES.최신순.name);
   const [filterOpen, setFilterOpen] = useState(false);
+
   return (
-    <Container className="w-full px-5 bg-transparent">
-      <Button variant="tertiary" onClick={() => setFilterOpen((cur) => !cur)}>
-        <Container className="flex justify-between w-36">
-          <Txt>{sort}</Txt>
+    <Container className="mt-4 ml-5">
+      <Button
+        variant="tertiary"
+        size="medium"
+        onClick={() => setFilterOpen((cur) => !cur)}
+      >
+        <Container className="flex items-center justify-between w-32 text-grayTxt">
+          <Txt className="text-[1rem]">{sort}</Txt>
           <svg
             xmlns="http://www.w3.org/2000/svg"
-            className="w-6 h-6"
+            className="w-5 h-5"
             fill="none"
             viewBox="0 0 24 24"
             stroke="currentColor"
@@ -36,7 +41,7 @@ export default function SortButton() {
         </Container>
       </Button>
       <Dropdown isOpen={filterOpen}>
-        <Container className="flex flex-col">
+        <Container className="flex flex-col w-32 gap-2 mx-4 my-2">
           <Button
             variant="quaternary"
             onClick={() => {
@@ -47,13 +52,13 @@ export default function SortButton() {
               setFilterOpen((cur) => !cur);
             }}
           >
-            <div className="flex justify-between w-36">
+            <div className="flex justify-between items-center w-full text-[1rem]">
               <span>{SORT_TYPES.최신순.name}</span>
               <span>
                 {sort === SORT_TYPES.최신순.name ? (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
+                    className="w-5 h-5"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"
@@ -79,13 +84,13 @@ export default function SortButton() {
               setFilterOpen((cur) => !cur);
             }}
           >
-            <div className="flex justify-between">
-              <Txt>{SORT_TYPES.추천순.name}</Txt>
+            <div className="flex justify-between items-center w-full text-[1rem]">
+              <span>{SORT_TYPES.추천순.name}</span>
               <span>
                 {sort === SORT_TYPES.추천순.name ? (
                   <svg
                     xmlns="http://www.w3.org/2000/svg"
-                    className="h-6 w-6"
+                    className="w-5 h-5"
                     fill="none"
                     viewBox="0 0 24 24"
                     stroke="currentColor"

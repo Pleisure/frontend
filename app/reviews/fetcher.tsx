@@ -76,8 +76,12 @@ export abstract class Fetcher {
         storeReviewId: '',
         storeReviewRating: 3,
         storeReviewContent:
-          '수상스키는 정말 신나는 경험이었습니다.\n바람을 느끼며\n\t수면 위를 미끄러지는 것은\n\t\t매우 자유롭고, 운동 효과도 좋았습니다. 수상스키를 타고 싶으시다면, 한 번 도전해보시길 추천합니다.',
+          '수상스키는 정말 신나는 경험이었습니다. 바람을 느끼며 수면 위를 미끄러지는 것은 매우 자유롭고, 운동 효과도 좋았습니다. 수상스키를 타고 싶으시다면, 한 번 도전해보시길 추천합니다.',
         storeReviewPhotoUrls: [
+          'https://upload.wikimedia.org/wikipedia/commons/5/55/Water_skiing_0754.jpg',
+          'https://www.kocis.go.kr/CONTENTS/editImage/20220511170717803_8GI2Z6Y1.jpg',
+          'https://upload.wikimedia.org/wikipedia/commons/5/55/Water_skiing_0754.jpg',
+          'https://www.kocis.go.kr/CONTENTS/editImage/20220511170717803_8GI2Z6Y1.jpg',
           'https://upload.wikimedia.org/wikipedia/commons/5/55/Water_skiing_0754.jpg',
           'https://www.kocis.go.kr/CONTENTS/editImage/20220511170717803_8GI2Z6Y1.jpg',
         ],
@@ -94,6 +98,10 @@ export abstract class Fetcher {
         storeReviewContent:
           '와~! 배 타는 거 진짜 재밌었어! 바다를 보는 게 너무 좋았고, 해변에서 놀고, 맛있는 음식도 먹고! 다음에도 꼭 함께 가자고!',
         storeReviewPhotoUrls: [
+          'https://ak-d.tripcdn.com/images/1mj0112000bh6rdxt7E56_Z_640_10000_R5.png_.webp?proc=autoorient',
+          'https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/5900367515/B.png?476000000',
+          'https://ak-d.tripcdn.com/images/1mj0112000bh6rdxt7E56_Z_640_10000_R5.png_.webp?proc=autoorient',
+          'https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/5900367515/B.png?476000000',
           'https://ak-d.tripcdn.com/images/1mj0112000bh6rdxt7E56_Z_640_10000_R5.png_.webp?proc=autoorient',
           'https://cdn.011st.com/11dims/resize/600x600/quality/75/11src/product/5900367515/B.png?476000000',
         ],
@@ -125,6 +133,8 @@ export abstract class Fetcher {
         storeReviewContent:
           '으으으... 배 타는 거 왜 이렇게 재미없는지 모르겠어...',
         storeReviewPhotoUrls: [
+          'https://economychosun.com/site/data/img_dir/2022/01/17/2022011700035_0.jpg',
+          'https://economychosun.com/site/data/img_dir/2022/01/17/2022011700035_0.jpg',
           'https://economychosun.com/site/data/img_dir/2022/01/17/2022011700035_0.jpg',
         ],
         createdAt: '2023-08-05T12:00:00.000Z',
