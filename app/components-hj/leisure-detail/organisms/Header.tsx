@@ -47,7 +47,7 @@ export default function Header({
     // 일정시간 지나면, 알림창 사라지기
     setTimeout(() => {
       setShowLinkCopyAlert(false);
-    }, 3000);
+    }, 2000);
   }
 
   // 카카오 공유하기 => 공유할 템플릿 컨텐트
